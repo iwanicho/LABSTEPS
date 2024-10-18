@@ -84,7 +84,7 @@ GenerateClassCluster=0
 DocumentUniqueId=DVCNXUSN
 
 [Document3]
-DocumentPath=..\..\..\..\marzu\Downloads\LABSTEPS_Project.SCHLIB
+DocumentPath=..\..\marzu\Downloads\LABSTEPS_Project.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -101,41 +101,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document4]
-DocumentPath=..\..\..\..\marzu\Downloads\Miscellaneous Devices.IntLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document5]
-DocumentPath=..\..\..\..\marzu\Downloads\Miscellaneous Connectors.IntLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document6]
-DocumentPath=..\..\..\..\marzu\Downloads\projectPCB_v1.PcbLib
+DocumentPath=..\..\marzu\Downloads\projectPCB_v1.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -151,24 +117,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WHBGKLWT
 
-[Document7]
-DocumentPath=..\..\..\..\marzu\Downloads\DB25S564GTLF.IntLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document8]
+[Document5]
 DocumentPath=control_connector.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -185,7 +134,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RONAVTZR
 
-[Document9]
+[Document6]
 DocumentPath=buffer.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -202,7 +151,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MBAHHAJC
 
-[Document10]
+[Document7]
 DocumentPath=supply.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -219,7 +168,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MDRHNIGR
 
-[Document11]
+[Document8]
 DocumentPath=SamacSys.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -236,7 +185,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document12]
+[Document9]
 DocumentPath=SamacSys.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -253,7 +202,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document10]
 DocumentPath=main.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -270,7 +219,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IXJOCKES
 
-[Document14]
+[Document11]
 DocumentPath=sensor_connector.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
