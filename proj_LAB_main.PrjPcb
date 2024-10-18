@@ -84,7 +84,7 @@ GenerateClassCluster=0
 DocumentUniqueId=DVCNXUSN
 
 [Document3]
-DocumentPath=..\..\marzu\Downloads\LABSTEPS_Project.SCHLIB
+DocumentPath=LABSTEPS_Project.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -101,7 +101,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document4]
-DocumentPath=..\..\marzu\Downloads\projectPCB_v1.PcbLib
+DocumentPath=projectPCB_v1.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -115,7 +115,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WHBGKLWT
+DocumentUniqueId=
 
 [Document5]
 DocumentPath=control_connector.SchDoc
