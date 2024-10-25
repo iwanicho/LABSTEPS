@@ -424,7 +424,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document23]
-DocumentPath=pcb_lab_main.PcbDoc
+DocumentPath=pcb_LAB_main.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
