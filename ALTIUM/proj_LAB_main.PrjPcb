@@ -118,7 +118,7 @@ GenerateClassCluster=0
 DocumentUniqueId=DVCNXUSN
 
 [Document5]
-DocumentPath=LABSTEPS_Project.SCHLIB
+DocumentPath=_library\LABSTEPS_Project.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -132,10 +132,10 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=TLGFUNCA
+DocumentUniqueId=
 
 [Document6]
-DocumentPath=projectPCB_v1.PcbLib
+DocumentPath=_library\projectPCB_v1.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -149,7 +149,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WHBGKLWT
+DocumentUniqueId=
 
 [Document7]
 DocumentPath=sensor_connector.SchDoc
@@ -220,7 +220,7 @@ GenerateClassCluster=0
 DocumentUniqueId=MDRHNIGR
 
 [Document11]
-DocumentPath=SamacSys.PcbLib
+DocumentPath=_library\SamacSys.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -234,10 +234,10 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MPRJBCLL
+DocumentUniqueId=
 
 [Document12]
-DocumentPath=SamacSys.SchLib
+DocumentPath=_library\SamacSys.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -251,7 +251,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NGLTGAHM
+DocumentUniqueId=
 
 [Document13]
 DocumentPath=main.SchDoc
@@ -305,7 +305,7 @@ GenerateClassCluster=0
 DocumentUniqueId=IQAWFNGH
 
 [Document16]
-DocumentPath=Miscellaneous Connectors.IntLib
+DocumentPath=_library\Miscellaneous Connectors.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -322,7 +322,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document17]
-DocumentPath=Miscellaneous Devices.IntLib
+DocumentPath=_library\Miscellaneous Devices.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -356,7 +356,7 @@ GenerateClassCluster=0
 DocumentUniqueId=QAAZNQEN
 
 [Document19]
-DocumentPath=TE_4-1437565-9.PcbLib
+DocumentPath=_library\TE_4-1437565-9.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -373,7 +373,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document20]
-DocumentPath=TE_4-1437565-9.SchLib
+DocumentPath=_library\TE_4-1437565-9.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -390,7 +390,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document21]
-DocumentPath=1736175.IntLib
+DocumentPath=_library\1736175.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -407,7 +407,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document22]
-DocumentPath=MSTBA_2_5__3-G-5_08_1757255.IntLib
+DocumentPath=_library\MSTBA_2_5__3-G-5_08_1757255.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -439,6 +439,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PAQXFWSS
+
+[Document24]
+DocumentPath=_library\BC557BRL1G.IntLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for proj_LAB_main\Design Rule Check - pcb_LAB_main.html
