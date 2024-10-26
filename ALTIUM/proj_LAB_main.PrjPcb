@@ -50,7 +50,7 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=currentU_conditioning.SchDoc
+DocumentPath=currentU_cond.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -67,7 +67,7 @@ GenerateClassCluster=0
 DocumentUniqueId=JNOYGZHY
 
 [Document2]
-DocumentPath=currentV_conditioning.SchDoc
+DocumentPath=currentV_cond.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -84,7 +84,7 @@ GenerateClassCluster=0
 DocumentUniqueId=JXALEWZH
 
 [Document3]
-DocumentPath=currentW_conditioning.SchDoc
+DocumentPath=currentW_cond.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -101,7 +101,7 @@ GenerateClassCluster=0
 DocumentUniqueId=TMPEUXRD
 
 [Document4]
-DocumentPath=voltage_conditioning.SchDoc
+DocumentPath=voltage_cond.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
