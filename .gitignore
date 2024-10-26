@@ -63,8 +63,8 @@ __Previews
 #useless dirs
 Project\ Outputs
 Project\ Logs
-Project Outputs for*
-!Project Outputs for proj_LAB_main/BOM_proj_LAB_main.xlsx
+#Project Outputs for*
+#!Project Outputs for proj_LAB_main/BOM_proj_LAB_main.xlsx
 
 #History
 History
