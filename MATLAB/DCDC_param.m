@@ -27,7 +27,7 @@ dIL = 0.2*ILnom;
 
 % boost inductor
 D = 1 - VinNom/VoutNom; % openloop duty cycle for 1leg
-D3 = D/3; % openloop duty cycle for 3leg
+D_3 = D/3; % openloop duty cycle for 3leg
 L = 1.1*max(VinNom*D*Tsw / dIL, VinNom*(1-D)*Tsw / dIL); %find max inductor for boost & buck operation
 
 
@@ -49,6 +49,6 @@ D = 1 - (VinNom-VdropL) / VoutNom;
 %}
 
 % interleaved OL correction
-Iin = IoutNom/(1-D3);
+Iin = IoutNom/(1-D_3);
 VdropL = Iin*RserL/3;
-D3 = 1 - (VinNom-VdropL)/VoutNom;
+D_3 = 1 - (VinNom-VdropL)/VoutNom;
