@@ -1,5 +1,5 @@
 % written by Giulia
-
+%probably e core or ETD 
 %% design of non-optimum inductor 
 L = 2*10^(-3); %He
 % L = mu_o * mu_r * N^2 * A_e/l_e
