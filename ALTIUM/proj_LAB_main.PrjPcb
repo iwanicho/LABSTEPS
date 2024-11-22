@@ -339,6 +339,23 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document18]
+DocumentPath=pcb_LAB_rev0.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=KOYWPLME
+
+[Document19]
 DocumentPath=led_VDC.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -355,7 +372,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QAAZNQEN
 
-[Document19]
+[Document20]
 DocumentPath=_library\TE_4-1437565-9.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -372,7 +389,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document21]
 DocumentPath=_library\TE_4-1437565-9.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -389,7 +406,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document21]
+[Document22]
 DocumentPath=_library\1736175.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -406,7 +423,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document22]
+[Document23]
 DocumentPath=_library\MSTBA_2_5__3-G-5_08_1757255.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -423,7 +440,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document23]
+[Document24]
 DocumentPath=_library\BC557BRL1G.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -440,7 +457,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document24]
+[Document25]
 DocumentPath=_library\moded_footprint.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -457,7 +474,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=XPNQNBUU
 
-[Document25]
+[Document26]
 DocumentPath=_library\moded_symbol.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -474,7 +491,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=XBRDVCNP
 
-[Document26]
+[Document27]
 DocumentPath=_library\BC557.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -491,7 +508,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FNZOXCDC
 
-[Document27]
+[Document28]
 DocumentPath=_library\BC557_mod.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -508,7 +525,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NGITRLDY
 
-[Document28]
+[Document29]
 DocumentPath=_library\MSTBA_3-pin_header.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -525,7 +542,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GMIVLSFD
 
-[Document29]
+[Document30]
 DocumentPath=_library\MSTBA_3-pin_header.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -542,7 +559,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JVHTISAB
 
-[Document30]
+[Document31]
 DocumentPath=_library\MSTBA_5-pin_header.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -559,7 +576,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=EQXIKUDD
 
-[Document31]
+[Document32]
 DocumentPath=_library\MSTBA_5-pin_header.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -576,7 +593,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FEJDJDZG
 
-[Document32]
+[Document33]
 DocumentPath=_library\1825910-6.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -593,7 +610,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document33]
+[Document34]
 DocumentPath=_library\SW_1825910-6-4.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -610,7 +627,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ATAOUFCN
 
-[Document34]
+[Document35]
 DocumentPath=_library\SW_1825910-6-4.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -627,8 +644,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PGXYWSYG
 
-[Document35]
-DocumentPath=pcb_LAB_rev0.PcbDoc
+[Document36]
+DocumentPath=pcb_LAB_rev1.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -649,7 +666,7 @@ DocumentPath=Project Outputs for proj_LAB_main\BOM_proj_LAB_main.xlsx
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for proj_LAB_main\Design Rule Check - pcb_LAB_main.html
+DocumentPath=Project Outputs for proj_LAB_main\Design Rule Check - pcb_LAB_rev1.html
 DItemRevisionGUID=
 
 [Configuration1]
