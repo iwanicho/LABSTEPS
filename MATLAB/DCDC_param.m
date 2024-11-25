@@ -1,14 +1,3 @@
-%% Battery Parameters
-%{
-batteryResponseTime = 10;  % (s) Settling time (95%) for 1C current steps
-VBN = 360; % (V) nominal voltage
-CBN = 24000; % (kWh) Battery rated capacity 
-ratedC = CBN/VBN; % (Ah) Rated capacity in Ah (Ah@C1)  66.6Ah
-VBNmax = 419.0354;  % (V) From simulink model (Full battery)
-VBNmin = 350; %(V) From design
-socInit = 80; % (%) State of charge
-%}
-
 %% Power Converter
 fsw = 10e3; %Hz
 Tsw = 1/fsw;
@@ -17,16 +6,19 @@ VFdiodeIGBT = 2.27; %V
 VthIGBT = 0.5; %V (IGBT treshold voltage normalized)
 
 VinNom = 30; %V
+VfbMax = 750; %v
+IfbMax = 10; %A
 VoutNom = 50; %V
+VoutMax = 70; %V
 
 %% Boost Converter design
 %from datasheet
 %
-ILnom = 5; %Arms half of maximum
+ILnom = 5; %A half of maximum
 dIL = 0.2*ILnom;
 
 % boost inductor
-D = 1 - VinNom/VoutNom; % openloop duty cycle for 1leg
+D = 1 - VinNom/VoutNom % openloop duty cycle for 1leg
 D_3 = D/3; % openloop duty cycle for 3leg
 L = 1.1*max(VinNom*D*Tsw / dIL, VinNom*(1-D)*Tsw / dIL); %find max inductor for boost & buck operation
 
@@ -45,10 +37,10 @@ ILmax = 10; %Arms from guash
 %
 Iin = IoutNom/(1-D);
 VdropL = Iin*RserL;
-D = 1 - (VinNom-VdropL) / VoutNom;
+D = (1 - (VinNom-VdropL) / VoutNom) + deadtimesw/Tsw
 %}
 
 % interleaved OL correction
 Iin = IoutNom/(1-D_3);
 VdropL = Iin*RserL/3;
-D_3 = 1 - (VinNom-VdropL)/VoutNom;
+D_3 = (1 - (VinNom-VdropL)/VoutNom) + deadtimesw/Tsw;
