@@ -1,7 +1,8 @@
 % written by Giulia
 %probably e core or ETD 
 %% design of non-optimum inductor 
-L = 2*10^(-3); %He
+DCDC_param;
+%L = 2*10^(-3); %He
 % L = mu_o * mu_r * N^2 * A_e/l_e
 mu_o = 4 * pi * 10^(-7);
 % choosing Ferrite E-core (sat = 0.3-0.5T), these values are assumed based
