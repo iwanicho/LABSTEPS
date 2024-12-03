@@ -14,21 +14,24 @@ VoutMax = 70; %V
 %% Boost Converter design
 %from datasheet
 %
-ILnom = 5; %A half of maximum
+ILnom = 5 %A
 dIL = 0.2*ILnom;
+IL_peak = ILnom+dIL
+IL_valley = ILnom-dIL
 
 % boost inductor
-D = 1 - VinNom/VoutNom % openloop duty cycle for 1leg
+D = 1 - VinNom/VoutNom; % openloop duty cycle for 1leg
 D_3 = D/3; % openloop duty cycle for 3leg
-L = 1.1*max(VinNom*D*Tsw / dIL, VinNom*(1-D)*Tsw / dIL); %find max inductor for boost & buck operation
+L = max(VinNom*D*Tsw / dIL, VinNom*(1-D)*Tsw / dIL) %find max inductor for boost & buck operation
 
 
-RserL = L * (0.14/5e-3); %Ohm (unknown) must estimate
+
+RserL = 8.78e-3 %Ohm from Open Magnetics
 C = 1000e-6; %H % from guasch datasheet
 ResrC = 1.8e-3; %Ohm (unknown) but not used in control tuning
 %}
 
-PCN = ILnom*VinNom; % converter nominal power (dont know yet)
+PCN = 3*ILnom*VinNom % converter nominal power (dont know yet)
 IoutNom = PCN/VoutNom; %A
 Rload = VoutNom/IoutNom; %Ohm
 ILmax = 10; %Arms from guash
@@ -43,4 +46,4 @@ D = (1 - (VinNom-VdropL) / VoutNom) + deadtimesw/Tsw
 % interleaved OL correction
 Iin = IoutNom/(1-D_3);
 VdropL = Iin*RserL/3;
-D_3 = (1 - (VinNom-VdropL)/VoutNom) + deadtimesw/Tsw;
+D_3 = (1 - (VinNom-VdropL)/VoutNom) + deadtimesw/Tsw
