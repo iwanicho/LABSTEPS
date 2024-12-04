@@ -21,7 +21,7 @@ d = 2 * sqrt(A_w/pi); %wire diameter
 
 %% avoiding saturation
 %B = (L*I)/(N*A_e);
-B_sat = 0.3; %T
+B_sat = 0.2; %T
 N_min = ceil((L*I)/(B_sat*A_e)) %nearest integer that is greater than or equal to the current value,
 
 %%total lenght of the wire
