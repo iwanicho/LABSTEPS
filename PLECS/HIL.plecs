@@ -93,10 +93,6 @@ Plecs {
     Index         "3"
   }
   Terminal {
-    Type          Input
-    Index         "4"
-  }
-  Terminal {
     Type          Output
     Index         "2"
   }
@@ -109,9 +105,9 @@ Plecs {
     Index         "4"
   }
   Schematic {
-    Location      [0, 26; 1536, 788]
-    ZoomFactor    0.667275
-    SliderPosition [0, 0]
+    Location      [73, 27; 1366, 733]
+    ZoomFactor    1.14437
+    SliderPosition [153, 108]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -517,37 +513,6 @@ Plecs {
     }
     Component {
       Type          Reference
-      SrcComponent  "PLECSRTBoxLib/Digital In1"
-      Name          "Digital In2"
-      Show          on
-      Position      [1210, 770]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-25, -20; 25, 20]
-      Parameter {
-        Variable      "channel"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "inputType"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "TargetPortIndices"
-        Value         "1"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [29, 0]
-        Direction     right
-      }
-    }
-    Component {
-      Type          Reference
       SrcComponent  "PLECSRTBoxLib/PWM Capture1"
       Name          "PWM Capture1"
       Show          on
@@ -578,7 +543,7 @@ Plecs {
       }
       Parameter {
         Variable      "TargetPortIndices"
-        Value         "2"
+        Value         "1"
         Show          off
       }
       Terminal {
@@ -642,7 +607,7 @@ Plecs {
       }
       Parameter {
         Variable      "TargetPortIndices"
-        Value         "3"
+        Value         "2"
         Show          off
       }
       Terminal {
@@ -683,7 +648,7 @@ Plecs {
       }
       Parameter {
         Variable      "TargetPortIndices"
-        Value         "4"
+        Value         "3"
         Show          off
       }
       Terminal {
@@ -1378,36 +1343,6 @@ Plecs {
       }
     }
     Component {
-      Type          DiscreteTransferFunction
-      Name          "AAF"
-      Show          on
-      Position      [330, 830]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-50, -15; 50, 15]
-      Parameter {
-        Variable      "Numerator"
-        Value         "[-0.10442 -0.20883 -0.10442]"
-        Show          off
-      }
-      Parameter {
-        Variable      "Denominator"
-        Value         "[1 -0.93914 0.3568]"
-        Show          off
-      }
-      Parameter {
-        Variable      "Ts"
-        Value         "-1"
-        Show          off
-      }
-      Parameter {
-        Variable      "X0"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
       Type          Gain
       Name          "Gain"
       Show          on
@@ -1433,36 +1368,6 @@ Plecs {
       Parameter {
         Variable      "DataTypeOverflowMode"
         Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          DiscreteTransferFunction
-      Name          "AAF1"
-      Show          on
-      Position      [325, 670]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-50, -15; 50, 15]
-      Parameter {
-        Variable      "Numerator"
-        Value         "[-0.10442 -0.20883 -0.10442]"
-        Show          off
-      }
-      Parameter {
-        Variable      "Denominator"
-        Value         "[1 -0.93914 0.3568]"
-        Show          off
-      }
-      Parameter {
-        Variable      "Ts"
-        Value         "-1"
-        Show          off
-      }
-      Parameter {
-        Variable      "X0"
-        Value         "0"
         Show          off
       }
     }
@@ -1496,36 +1401,6 @@ Plecs {
       }
     }
     Component {
-      Type          DiscreteTransferFunction
-      Name          "AAF2"
-      Show          on
-      Position      [310, 755]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-50, -15; 50, 15]
-      Parameter {
-        Variable      "Numerator"
-        Value         "[-0.10442 -0.20883 -0.10442]"
-        Show          off
-      }
-      Parameter {
-        Variable      "Denominator"
-        Value         "[1 -0.93914 0.3568]"
-        Show          off
-      }
-      Parameter {
-        Variable      "Ts"
-        Value         "-1"
-        Show          off
-      }
-      Parameter {
-        Variable      "X0"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
       Type          Gain
       Name          "Gain2"
       Show          on
@@ -1555,36 +1430,6 @@ Plecs {
       }
     }
     Component {
-      Type          DiscreteTransferFunction
-      Name          "AAF3"
-      Show          on
-      Position      [300, 920]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-50, -15; 50, 15]
-      Parameter {
-        Variable      "Numerator"
-        Value         "[-0.10442 -0.20883 -0.10442]"
-        Show          off
-      }
-      Parameter {
-        Variable      "Denominator"
-        Value         "[1 -0.93914 0.3568]"
-        Show          off
-      }
-      Parameter {
-        Variable      "Ts"
-        Value         "-1"
-        Show          off
-      }
-      Parameter {
-        Variable      "X0"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
       Type          Gain
       Name          "Gain3"
       Show          on
@@ -1610,6 +1455,110 @@ Plecs {
       Parameter {
         Variable      "DataTypeOverflowMode"
         Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          TransferFunction
+      Name          "AAF"
+      Show          on
+      Position      [305, 670]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-30, -15; 30, 15]
+      Parameter {
+        Variable      "Numerator"
+        Value         "[-1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "Denominator"
+        Value         "[(6.8e3)*(4.3e3)*(10e-9)*(47e-9) ((4.3e3)+(6.8e3))*(10e"
+"-9)+(4.3e3)*(10e-9)]"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          TransferFunction
+      Name          "AAF1"
+      Show          on
+      Position      [290, 755]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-30, -15; 30, 15]
+      Parameter {
+        Variable      "Numerator"
+        Value         "[-1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "Denominator"
+        Value         "[(6.8e3)*(4.3e3)*(10e-9)*(47e-9) ((4.3e3)+(6.8e3))*(10e"
+"-9)+(4.3e3)*(10e-9)]"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          TransferFunction
+      Name          "AAF2"
+      Show          on
+      Position      [310, 830]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-30, -15; 30, 15]
+      Parameter {
+        Variable      "Numerator"
+        Value         "[-1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "Denominator"
+        Value         "[(6.8e3)*(4.3e3)*(10e-9)*(47e-9) ((4.3e3)+(6.8e3))*(10e"
+"-9)+(4.3e3)*(10e-9)]"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          TransferFunction
+      Name          "AAF3"
+      Show          on
+      Position      [280, 920]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-30, -15; 30, 15]
+      Parameter {
+        Variable      "Numerator"
+        Value         "[-1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "Denominator"
+        Value         "[(6.8e3)*(4.3e3)*(10e-9)*(47e-9) ((4.3e3)+(6.8e3))*(10e"
+"-9)+(4.3e3)*(10e-9)]"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
         Show          off
       }
     }
@@ -1991,21 +1940,14 @@ Plecs {
       Type          Signal
       SrcComponent  "Gain"
       SrcTerminal   2
-      DstComponent  "AAF"
+      DstComponent  "AAF2"
       DstTerminal   1
     }
     Connection {
       Type          Signal
       SrcComponent  "Gain1"
       SrcTerminal   2
-      DstComponent  "AAF1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "AAF1"
-      SrcTerminal   2
-      DstComponent  "Analog Out1"
+      DstComponent  "AAF"
       DstTerminal   1
     }
     Connection {
@@ -2019,14 +1961,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Gain2"
       SrcTerminal   2
-      DstComponent  "AAF2"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "AAF2"
-      SrcTerminal   2
-      DstComponent  "Analog Out2"
+      DstComponent  "AAF1"
       DstTerminal   1
     }
     Connection {
@@ -2034,13 +1969,6 @@ Plecs {
       SrcComponent  "From8"
       SrcTerminal   1
       DstComponent  "Gain2"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "AAF"
-      SrcTerminal   2
-      DstComponent  "Analog Out3"
       DstTerminal   1
     }
     Connection {
@@ -2062,6 +1990,27 @@ Plecs {
       SrcComponent  "From6"
       SrcTerminal   1
       DstComponent  "Gain3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "AAF"
+      SrcTerminal   2
+      DstComponent  "Analog Out1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "AAF1"
+      SrcTerminal   2
+      DstComponent  "Analog Out2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "AAF2"
+      SrcTerminal   2
+      DstComponent  "Analog Out3"
       DstTerminal   1
     }
     Connection {
