@@ -2,7 +2,7 @@ close all
 clc
 clear all
 
-L = 1.8*1e-3;
+L = 1.82*1e-3;
 fs = 10e3;
 iLp = 6;
 iLv = 4;
