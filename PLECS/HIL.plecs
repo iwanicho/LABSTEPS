@@ -39,21 +39,21 @@ Plecs {
 "ing from physical value to sensor output\n\nPCN = 75; %W converter nominal po"
 "wer (dont know yet)\nIoutNom = PCN/VoutNom; %A\nRload = VoutNom/IoutNom; %Ohm"
 "\n\n%% Boost Converter design\n%from datasheet\n%\nILmax = 10; %Arms from gua"
-"sh\nILnom = (1/3)*PCN/VinNom; %A\ndIL = 0.4*ILnom;\nILpeak = ILnom+dIL;\nILva"
-"lley = ILnom-dIL;\n\n% boost inductor, continuous mode\nD = 1 - VinNom/VoutNo"
-"m % openloop duty cycle for 1leg\nD_3 = D; % openloop duty cycle for 3leg\nL "
-"= VinNom*D*Tsw/dIL %H inductor for boost operation\nRserL = 8.78e-3; %Ohm fro"
-"m Open Magnetics\n\nC = 1000e-6; %H % from guasch datasheet\n% assume ResrC ="
-" (1e-5)/C, but not used in control tuning\nRserC = (1e-5)/C; %Ohm\n%}\n\n% OL"
-" duty cycle correction\n%\nIin = IoutNom/(1-D);\nVdropL = Iin*RserL;\nD = (1 "
-"- (VinNom-VdropL)/VoutNom);% + deadtimesw/Tsw\n%}\n\n% interleaved OL correct"
-"ion\nIin = IoutNom/(1-D_3);\nVdropL = Iin*RserL/3;\nD_3 = (1 - (VinNom-VdropL"
-")/VoutNom);% + deadtimesw/Tsw\n\n% signal conditioning board\ngainSensorV = 0"
-".4; % signal conditioning parameter\ngainSensorI = 0.2; % signal conditioning"
-" parameter\nbiasSensorI = 1.5; % signal conditioning parameter\n\nRf1 = 6.8e3"
-" %Ohm\nRf2 = 6.8e3 %Ohm\nRf3 = 4.3e3 %Ohm\nCf1 = 10e-9; %F\nCf2 = 47e-9; %F\n"
-"\nK = -Rf2/Rf1;\na = Rf2*Rf3*Cf1*Cf2;\nb = Rf3*Cf1 + Rf2*Cf1 + Rf2*Rf3*Cf1/Rf"
-"1;\nc = 1;\nnum_aaf = K\nden_aaf = [a b c]"
+"sh\nILnom = (1/3)*PCN/VinNom; %A\ndIL = 0.4*ILnom;\nILpeak = ILnom+dIL/2;\nIL"
+"valley = ILnom-dIL/2;\n\n% boost inductor, continuous mode\nD = 1 - VinNom/Vo"
+"utNom % openloop duty cycle for 1leg\nD_3 = D; % openloop duty cycle for 3leg"
+"\nL = VinNom*D*Tsw/dIL %H inductor for boost operation\nRserL = 8.78e-3; %Ohm"
+" from Open Magnetics\n\nC = 1000e-6; %H % from guasch datasheet\n% assume Res"
+"rC = (1e-5)/C, but not used in control tuning\nRserC = (1e-5)/C; %Ohm\n%}\n\n"
+"% OL duty cycle correction\n%\nIin = IoutNom/(1-D);\nVdropL = Iin*RserL;\nD ="
+" (1 - (VinNom-VdropL)/VoutNom);% + deadtimesw/Tsw\n%}\n\n% interleaved OL cor"
+"rection\nIin = IoutNom/(1-D_3);\nVdropL = Iin*RserL/3;\nD_3 = (1 - (VinNom-Vd"
+"ropL)/VoutNom);% + deadtimesw/Tsw\n\n% signal conditioning board\ngainSensorV"
+" = 0.4; % signal conditioning parameter\ngainSensorI = 0.2; % signal conditio"
+"ning parameter\nbiasSensorI = 1.5; % signal conditioning parameter\n\nRf1 = 6"
+".8e3 %Ohm\nRf2 = 6.8e3 %Ohm\nRf3 = 4.3e3 %Ohm\nCf1 = 10e-9; %F\nCf2 = 47e-9; "
+"%F\n\nK = -Rf2/Rf1;\na = Rf2*Rf3*Cf1*Cf2;\nb = Rf3*Cf1 + Rf2*Cf1 + Rf2*Rf3*Cf"
+"1/Rf1;\nc = 1;\nnum_aaf = K\nden_aaf = [a b c]"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -138,7 +138,7 @@ Plecs {
   Schematic {
     Location      [73, 27; 1366, 733]
     ZoomFactor    1
-    SliderPosition [0, 102]
+    SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -2200,8 +2200,8 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"QAAAGQAAAAIAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAAACAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"wAAAGQAAAACAAAAZAAAAAkAAABkAAAACAAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAA"
 "AAZAAAAAEAAABkAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"

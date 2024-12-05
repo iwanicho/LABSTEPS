@@ -24,8 +24,8 @@ Rload = VoutNom/IoutNom %Ohm
 ILmax = 10; %Arms from guash
 ILnom = (1/3)*PCN/VinNom %A
 dIL = 0.4*ILnom
-ILpeak = ILnom+dIL
-ILvalley = ILnom-dIL
+ILpeak = ILnom+dIL/2
+ILvalley = ILnom-dIL/2
 
 % boost inductor, continuous mode
 D = 1 - VinNom/VoutNom % openloop duty cycle for 1leg
