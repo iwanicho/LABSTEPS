@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_OL1".
  *
- * Model version              : 9.23
+ * Model version              : 9.26
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Nov 27 12:19:35 2024
+ * C source code generated on : Wed Dec  4 19:00:32 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -368,9 +368,8 @@ interrupt void SEQ1INT(void)
           InductorTF1 = Z_OL1_P.VoutMax - Z_OL1_P.VinNom;
 
           /* Gain: '<S1>/Gain6' incorporates:
-           *  Constant: '<S1>/Constant3'
+           *  Bias: '<S1>/Bias1'
            *  Gain: '<S1>/Gain5'
-           *  Sum: '<S1>/Sum2'
            */
           u0 = 1.0 / InductorTF1 * (rtb_CapacitorTF - Z_OL1_P.VinNom) *
             Z_OL1_P.ADC_mapping;
@@ -409,8 +408,7 @@ interrupt void SEQ1INT(void)
             AdcRegs.ADCTRL2.bit.RST_SEQ1 = 0x1U;/* Sequencer reset*/
           }
 
-          /* Sum: '<S1>/Sum' incorporates:
-           *  Constant: '<S1>/Constant'
+          /* Bias: '<S1>/Bias4' incorporates:
            *  Gain: '<S1>/Gain'
            *  Gain: '<S1>/Gain2'
            */
@@ -432,9 +430,12 @@ interrupt void SEQ1INT(void)
             InductorTF1_tmp;
 
           /* DataTypeConversion: '<S1>/Cast To Single2' incorporates:
+           *  Bias: '<S1>/Bias'
            *  Gain: '<S1>/Gain1'
+           *  Gain: '<S1>/Gain7'
            */
-          u0 = floor(Z_OL1_P.TBPRD * InductorTF1);
+          u0 = floor((Z_OL1_P.Gain7_Gain * InductorTF1 + Z_OL1_P.Bias_Bias) *
+                     Z_OL1_P.TBPRD);
           if (rtIsNaN(u0) || rtIsInf(u0)) {
             u0 = 0.0;
           } else {
@@ -478,11 +479,10 @@ interrupt void SEQ1INT(void)
             Z_OL1_DW.InductorTF1_states) / Z_OL1_P.zden_plant_i[0];
 
           /* Update for Memory: '<S4>/Memory1' incorporates:
-           *  Constant: '<S1>/Constant1'
+           *  Bias: '<S1>/Bias3'
            *  Gain: '<S1>/Gain3'
            *  Gain: '<S1>/Gain4'
            *  Product: '<S4>/Divide'
-           *  Sum: '<S1>/Sum1'
            */
           Z_OL1_DW.Memory1_PreviousInput = rtb_CapacitorTF / (1.0 /
             Z_OL1_P.ADC_mapping * Z_OL1_B.ADC_o2 * Z_OL1_P.Rload + 0.5 *

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_OL3".
  *
- * Model version              : 9.18
+ * Model version              : 9.21
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Nov 27 12:30:30 2024
+ * C source code generated on : Wed Dec  4 19:44:34 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -87,7 +87,7 @@ struct P_Z_OL3_T_ {
                                         */
   real_T Rload;                        /* Variable: Rload
                                         * Referenced by:
-                                        *   '<S1>/Constant1'
+                                        *   '<S1>/Bias3'
                                         *   '<S1>/Gain4'
                                         */
   real_T RserL;                        /* Variable: RserL
@@ -106,8 +106,8 @@ struct P_Z_OL3_T_ {
   real_T VinNom;                       /* Variable: VinNom
                                         * Referenced by:
                                         *   '<S1>/MATLAB Function'
-                                        *   '<S1>/Constant'
-                                        *   '<S1>/Constant3'
+                                        *   '<S1>/Bias1'
+                                        *   '<S1>/Bias4'
                                         *   '<S1>/Gain'
                                         *   '<S1>/Gain5'
                                         *   '<S4>/Constant'
@@ -160,6 +160,12 @@ struct P_Z_OL3_T_ {
                                         */
   real_T Saturation_LowerSat;          /* Expression: 0
                                         * Referenced by: '<S1>/Saturation'
+                                        */
+  real_T Gain7_Gain;                   /* Expression: -1
+                                        * Referenced by: '<S1>/Gain7'
+                                        */
+  real_T Bias_Bias;                    /* Expression: 1
+                                        * Referenced by: '<S1>/Bias'
                                         */
 };
 

@@ -14,8 +14,6 @@ void config_ePWM_GPIO (void)
 
   /*-- Configure pin assignments for ePWM5 --*/
 
-  /*-- Configure pin assignments for ePWM1 --*/
-
   /*-- Configure pin assignments for ePWM2 --*/
   GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 1U; /* Configure GPIOGPIO2 as EPWM2A*/
   GpioCtrlRegs.GPAMUX1.bit.GPIO3 = 1U; /* Configure GPIOGPIO3 as EPWM2B*/

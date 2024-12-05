@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_CL1".
  *
- * Model version              : 9.21
+ * Model version              : 9.22
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Thu Nov 28 13:53:50 2024
+ * C source code generated on : Wed Dec  4 18:43:16 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -37,17 +37,17 @@ P_Z_CL1_T Z_CL1_P = {
 
   /* Variable: Rload
    * Referenced by:
-   *   '<S1>/Constant1'
+   *   '<S1>/Bias3'
    *   '<S1>/Gain4'
    */
-  16.666666666666668,
+  33.333333333333336,
 
   /* Variable: RserL
    * Referenced by:
    *   '<S4>/Iout2IL2'
    *   '<S5>/IL2Iout'
    */
-  0.055440000000000017,
+  0.00878,
 
   /* Variable: TBPRD
    * Referenced by: '<S1>/Gain1'
@@ -68,7 +68,7 @@ P_Z_CL1_T Z_CL1_P = {
 
   /* Variable: VinNom
    * Referenced by:
-   *   '<S1>/Constant'
+   *   '<S1>/Bias4'
    *   '<S1>/Constant3'
    *   '<S1>/Gain'
    *   '<S1>/Gain5'
@@ -76,7 +76,7 @@ P_Z_CL1_T Z_CL1_P = {
    *   '<S4>/Constant3'
    *   '<S5>/Constant'
    */
-  30.0,
+  25.0,
 
   /* Variable: VoutMax
    * Referenced by:
@@ -95,7 +95,7 @@ P_Z_CL1_T Z_CL1_P = {
   /* Variable: kaw_i
    * Referenced by: '<S7>/Gain2'
    */
-  0.41663422718759291,
+  0.12915612411392344,
 
   /* Variable: kaw_v
    * Referenced by: '<S4>/Gain8'
@@ -105,7 +105,7 @@ P_Z_CL1_T Z_CL1_P = {
   /* Variable: ki_i
    * Referenced by: '<S7>/Gain'
    */
-  2705.314772184036,
+  8539.5037000758675,
 
   /* Variable: ki_v
    * Referenced by: '<S4>/Gain13'
@@ -115,7 +115,7 @@ P_Z_CL1_T Z_CL1_P = {
   /* Variable: kp_i
    * Referenced by: '<S7>/Gain1'
    */
-  2.4001868659478665,
+  7.74256743039099,
 
   /* Variable: kp_v
    * Referenced by: '<S4>/Gain15'
@@ -139,7 +139,7 @@ P_Z_CL1_T Z_CL1_P = {
   /* Variable: zden_plant_i
    * Referenced by: '<S5>/Inductor TF1'
    */
-  { 1.0, -0.99720391634389294 },
+  { 1.0, -0.99985952986685311 },
 
   /* Variable: zden_plant_v
    * Referenced by: '<S5>/Capacitor TF'
@@ -163,12 +163,12 @@ P_Z_CL1_T Z_CL1_P = {
   /* Variable: znum_plant_i
    * Referenced by: '<S5>/Inductor TF1'
    */
-  { 0.0, 0.05043440938144 },
+  { 0.0, 0.015998876212623834 },
 
   /* Variable: znum_plant_v
    * Referenced by: '<S5>/Capacitor TF'
    */
-  { 0.051799999999999992, 0.048199999999999993 },
+  { 0.060000000000000012, 0.040000000000000015 },
 
   /* Expression: 0
    * Referenced by: '<S5>/Memory1'

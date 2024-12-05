@@ -163,9 +163,9 @@
 <location>C:/ti/c2000/C2000Ware_5_04_00_00/device_support/f2833x/common/source/DSP2833x_Adc.c</location>
 </link>
 <link>
-<name>f28335.ccxml</name>
+<name>NewTargetConfiguration.ccxml</name>
 <type>1</type>
-<location>C:/Program Files/MATLAB/R2024a/toolbox/c2b/tic2000/CCS_Config/f28335.ccxml</location>
+<location>D:/vscod/LABSTEPS/MATLAB/_discrete_plant/NewTargetConfiguration.ccxml</location>
 </link>
 </linkedResources>
 </projectDescription>

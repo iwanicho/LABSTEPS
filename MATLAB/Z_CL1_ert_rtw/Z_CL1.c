@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_CL1".
  *
- * Model version              : 9.21
+ * Model version              : 9.22
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Thu Nov 28 13:53:50 2024
+ * C source code generated on : Wed Dec  4 18:43:16 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -186,9 +186,9 @@ void Z_CL1_initialize(void)
     MW_adcInitFlag = 1U;
   }
 
-  config_ADC_A (3U, 21520U, 0U, 0U, 0U);
+  config_ADC_B (3U, 0U, 0U, 47768U, 0U);
 
-  /* Start for S-Function (c280xpwm): '<S1>/ePWM' */
+  /* Start for S-Function (c280xpwm): '<S1>/ePWM1' */
 
   /*** Initialize ePWM2 modules ***/
   {
@@ -225,7 +225,7 @@ void Z_CL1_initialize(void)
 
     /*-- Setup Action-Qualifier (AQ) Submodule --*/
     EPwm2Regs.AQCTLA.all = 96;
-    EPwm2Regs.AQCTLB.all = 264;
+    EPwm2Regs.AQCTLB.all = 96;
 
     /* // Action-Qualifier Software Force Register
        EPwm2Regs.AQSFRC.bit.RLDCSF    = 0;          // Reload from Shadow options
@@ -241,26 +241,26 @@ void Z_CL1_initialize(void)
     /*-- Setup Dead-Band Generator (DB) Submodule --*/
     /* // Dead-Band Generator Control Register
        EPwm2Regs.DBCTL.bit.OUT_MODE   = 3;          // Dead Band Output Mode Control
-       EPwm2Regs.DBCTL.bit.IN_MODE    = 0;          // Dead Band Input Select Mode Control
+       EPwm2Regs.DBCTL.bit.IN_MODE    = 3;          // Dead Band Input Select Mode Control
        EPwm2Regs.DBCTL.bit.POLSEL     = 2;          // Polarity Select Control
      */
-    EPwm2Regs.DBCTL.all = (EPwm2Regs.DBCTL.all & ~0x3F) | 0xB;
+    EPwm2Regs.DBCTL.all = (EPwm2Regs.DBCTL.all & ~0x3F) | 0x3B;
     EPwm2Regs.DBRED = 420;
     EPwm2Regs.DBFED = 420;
 
     /*-- Setup Event-Trigger (ET) Submodule --*/
     /* // Event-Trigger Selection and Event-Trigger Pre-Scale Register
-       EPwm2Regs.ETSEL.bit.SOCAEN     = 1;          // Start of conversion A Enable
+       EPwm2Regs.ETSEL.bit.SOCAEN     = 0;          // Start of conversion A Enable
        EPwm2Regs.ETSEL.bit.SOCASEL    = 2;          // Start of conversion A Select
        EPwm2Regs.ETPS.bit.SOCAPRD     = 1;          // EPWM2SOCA Period Select
-       EPwm2Regs.ETSEL.bit.SOCBEN     = 0;          // Start of conversion B Enable
-       EPwm2Regs.ETSEL.bit.SOCBSEL    = 1;          // Start of conversion B Select
+       EPwm2Regs.ETSEL.bit.SOCBEN     = 1;          // Start of conversion B Enable
+       EPwm2Regs.ETSEL.bit.SOCBSEL    = 2;          // Start of conversion B Select
        EPwm2Regs.ETPS.bit.SOCBPRD     = 1;          // EPWM2SOCB Period Select
        EPwm2Regs.ETSEL.bit.INTEN      = 0;          // EPWM2INTn Enable
        EPwm2Regs.ETSEL.bit.INTSEL     = 4;          // EPWM2INTn Select
        EPwm2Regs.ETPS.bit.INTPRD      = 1;          // EPWM2INTn Period Select
      */
-    EPwm2Regs.ETSEL.all = (EPwm2Regs.ETSEL.all & ~0xFF0F) | 0x1A04;
+    EPwm2Regs.ETSEL.all = (EPwm2Regs.ETSEL.all & ~0xFF0F) | 0xA204;
     EPwm2Regs.ETPS.all = (EPwm2Regs.ETPS.all & ~0x3303) | 0x1101;
 
     /*-- Setup PWM-Chopper (PC) Submodule --*/
@@ -426,14 +426,14 @@ interrupt void SEQ1INT(void)
           /* Gain: '<S1>/Gain5' incorporates:
            *  Gain: '<S1>/Gain'
            */
-          Z_CL1_B.Vout_ref_b = Z_CL1_P.VoutMax - Z_CL1_P.VinNom;
+          Z_CL1_B.Vout_ref_n = Z_CL1_P.VoutMax - Z_CL1_P.VinNom;
 
           /* Gain: '<S1>/Gain6' incorporates:
            *  Constant: '<S1>/Constant3'
            *  Gain: '<S1>/Gain5'
            *  Sum: '<S1>/Sum2'
            */
-          Z_CL1_B.Gain1_i = 1.0 / Z_CL1_B.Vout_ref_b * (Z_CL1_B.CapacitorTF -
+          Z_CL1_B.Gain1_i = 1.0 / Z_CL1_B.Vout_ref_n * (Z_CL1_B.CapacitorTF -
             Z_CL1_P.VinNom) * Z_CL1_P.ADC_mapping;
 
           /* Saturate: '<S1>/Saturation' */
@@ -471,20 +471,19 @@ interrupt void SEQ1INT(void)
 
           /* S-Function (c280xadc): '<S1>/analog dial' */
           {
-            Z_CL1_B.analogdial_o1 = (AdcRegs.ADCRESULT0) >> 4;
-            Z_CL1_B.analogdial_o2 = (AdcRegs.ADCRESULT1) >> 4;
-            Z_CL1_B.analogdial_o3 = (AdcRegs.ADCRESULT2) >> 4;
-            Z_CL1_B.analogdial_o4 = (AdcRegs.ADCRESULT3) >> 4;
-            AdcRegs.ADCTRL2.bit.RST_SEQ1 = 0x1U;/* Sequencer reset*/
+            Z_CL1_B.analogdial_o1 = (AdcRegs.ADCRESULT8) >> 4;
+            Z_CL1_B.analogdial_o2 = (AdcRegs.ADCRESULT9) >> 4;
+            Z_CL1_B.analogdial_o3 = (AdcRegs.ADCRESULT10) >> 4;
+            Z_CL1_B.analogdial_o4 = (AdcRegs.ADCRESULT11) >> 4;
+            AdcRegs.ADCTRL2.bit.RST_SEQ2 = 0x1U;/* Sequencer SEQ2 reset*/
           }
 
-          /* Sum: '<S1>/Sum' incorporates:
-           *  Constant: '<S1>/Constant'
+          /* Bias: '<S1>/Bias4' incorporates:
            *  Gain: '<S1>/Gain'
            *  Gain: '<S1>/Gain2'
            */
-          Z_CL1_B.Vout_ref_b = 1.0 / Z_CL1_P.ADC_mapping * Z_CL1_B.analogdial_o1
-            * Z_CL1_B.Vout_ref_b + Z_CL1_P.VinNom;
+          Z_CL1_B.Vout_ref_n = 1.0 / Z_CL1_P.ADC_mapping * Z_CL1_B.analogdial_o1
+            * Z_CL1_B.Vout_ref_n + Z_CL1_P.VinNom;
 
           /* DiscreteTransferFcn: '<S3>/AAF TF' incorporates:
            *  Delay: '<S3>/Communication Interface Delay'
@@ -505,7 +504,7 @@ interrupt void SEQ1INT(void)
            *  Sum: '<S4>/Sum14'
            *  Sum: '<S4>/Sum8'
            */
-          Z_CL1_B.Gain4 = (((Z_CL1_B.Vout_ref_b - AAFTF) -
+          Z_CL1_B.Gain4 = (((Z_CL1_B.Vout_ref_n - AAFTF) -
                             Z_CL1_DW.Memory3_PreviousInput_c) * Z_CL1_P.ki_v -
                            Z_CL1_P.zden_Integrator[1L] *
                            Z_CL1_DW.discreteintegrator_states) /
@@ -525,19 +524,19 @@ interrupt void SEQ1INT(void)
            *  Memory: '<S4>/Memory2'
            */
           /* MATLAB Function 'ADC-PWM Subsystem/control/Iout2IL2': '<S6>:1' */
-          if (Z_CL1_B.Vout_ref_b < Z_CL1_P.VinNom) {
+          if (Z_CL1_B.Vout_ref_n < Z_CL1_P.VinNom) {
             /* '<S6>:1:3' */
             /* '<S6>:1:4' */
-            Z_CL1_B.Vout_ref_b = Z_CL1_P.VinNom;
+            Z_CL1_B.Vout_ref_n = Z_CL1_P.VinNom;
           }
 
           /* '<S6>:1:6' */
-          Z_CL1_B.Vout_ref_b = (Z_CL1_P.VinNom - Z_CL1_P.RserL *
+          Z_CL1_B.Vout_ref_n = (Z_CL1_P.VinNom - Z_CL1_P.RserL *
                                 Z_CL1_DW.Memory2_PreviousInput) /
-            Z_CL1_B.Vout_ref_b;
+            Z_CL1_B.Vout_ref_n;
 
           /* '<S6>:1:7' */
-          rtb_IL = rtb_Gain13 / Z_CL1_B.Vout_ref_b;
+          rtb_IL = rtb_Gain13 / Z_CL1_B.Vout_ref_n;
 
           /* Saturate: '<S4>/Saturation2' */
           if (rtb_IL > Z_CL1_P.ILmax) {
@@ -632,15 +631,14 @@ interrupt void SEQ1INT(void)
             Z_CL1_B.Gain1_i = fmod(Z_CL1_B.Gain1_i, 65536.0);
           }
 
-          /* S-Function (c280xpwm): '<S1>/ePWM' incorporates:
+          /* S-Function (c280xpwm): '<S1>/ePWM1' incorporates:
            *  DataTypeConversion: '<S1>/Cast To Single2'
            */
 
-          /*-- Update CMPA value for ePWM2 --*/
+          /*-- Update CMPB value for ePWM2 --*/
           {
-            EPwm2Regs.CMPA.half.CMPA = (uint16_T)((Z_CL1_B.Gain1_i < 0.0 ?
-              (uint16_T)-(int16_T)(uint16_T)-Z_CL1_B.Gain1_i : (uint16_T)
-              Z_CL1_B.Gain1_i));
+            EPwm2Regs.CMPB = (uint16_T)((Z_CL1_B.Gain1_i < 0.0 ? (uint16_T)
+              -(int16_T)(uint16_T)-Z_CL1_B.Gain1_i : (uint16_T)Z_CL1_B.Gain1_i));
           }
 
           /* MATLAB Function: '<S5>/duty2VL4' incorporates:
@@ -671,11 +669,10 @@ interrupt void SEQ1INT(void)
             [1L] * Z_CL1_DW.InductorTF1_states) / Z_CL1_P.zden_plant_i[0];
 
           /* Update for Memory: '<S5>/Memory3' incorporates:
-           *  Constant: '<S1>/Constant1'
+           *  Bias: '<S1>/Bias3'
            *  Gain: '<S1>/Gain3'
            *  Gain: '<S1>/Gain4'
            *  Product: '<S5>/Divide'
-           *  Sum: '<S1>/Sum1'
            */
           Z_CL1_DW.Memory3_PreviousInput = Z_CL1_B.CapacitorTF / (1.0 /
             Z_CL1_P.ADC_mapping * Z_CL1_B.analogdial_o2 * Z_CL1_P.Rload + 0.5 *
@@ -701,7 +698,7 @@ interrupt void SEQ1INT(void)
            *  Sum: '<S4>/Sum13'
            */
           Z_CL1_DW.Memory3_PreviousInput_c = (rtb_Gain13 - rtb_IL *
-            Z_CL1_B.Vout_ref_b) * Z_CL1_P.kaw_v;
+            Z_CL1_B.Vout_ref_n) * Z_CL1_P.kaw_v;
 
           /* Update for Delay: '<S3>/Communication Interface Delay' */
           Z_CL1_DW.CommunicationInterfaceDelay_DST[0] =

@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v22.6.0                     
 ******************************************************************************
->> Linked Thu Nov 28 13:54:12 2024
+>> Linked Wed Dec  4 18:43:29 2024
 
 OUTPUT FILE NAME:   <../Z_CL1.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 00009335
@@ -14,7 +14,7 @@ MEMORY CONFIGURATION
 PAGE 0:
   BEGINRAM              00000000   00000002  00000002  00000000  RWIX
   RAMM0                 00000002   000003fe  00000000  000003fe  RWIX
-  RAMLPRG               00008000   00005000  000015f2  00003a0e  RWIX
+  RAMLPRG               00008000   00005000  000015f3  00003a0d  RWIX
   ZONE7P                00200000   00010000  00000000  00010000  RWIX
   FLASH                 00300000   0003fff6  00000000  0003fff6  RWIX
   BEGINFLASH            0033fff6   00000002  00000000  00000002  RWIX
@@ -88,7 +88,7 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.text      0    00008095    0000155d     
+.text      0    00008095    0000155e     
                   00008095    00000661     MW_c2000ISR.obj (.text)
                   000086f6    00000400     Z_CL1.obj (.text:retain)
                   00008af6    00000316     DSP2833x_DefaultIsr.obj (.text:retain)
@@ -104,23 +104,23 @@ section   page    origin      length       input sections
                   0000938b    00000050     ert_main.obj (.text)
                   000093db    00000044     c2833xSchedulerTimer0.obj (.text:retain)
                   0000941f    00000044     rtGetInf.obj (.text)
-                  00009463    00000034     MW_c28xx_adc.obj (.text)
-                  00009497    0000002a     rtGetNaN.obj (.text)
-                  000094c1    00000029     rts2800_fpu32.lib : exit.c.obj (.text)
-                  000094ea    00000028     DSP2833x_PieCtrl.obj (.text)
-                  00009512    00000024     rts2800_fpu32.lib : cpy_tbl.c.obj (.text)
-                  00009536    00000020     DSP2833x_PieVect.obj (.text)
-                  00009556    0000001d     rts2800_fpu32.lib : memcpy.c.obj (.text)
-                  00009573    00000019     rts2800_fpu32_fast_supplement_coff.lib : div_f32.obj (.text)
-                  0000958c    00000017     MW_c28xx_pwm.obj (.text)
-                  000095a3    00000014     DSP2833x_Adc.obj (.text)
-                  000095b7    00000014     MW_c28xGlobalInterrupts.obj (.text)
-                  000095cb    00000012     rts2800_fpu32.lib : args_main.c.obj (.text)
-                  000095dd    00000009                       : _lock.c.obj (.text)
-                  000095e6    00000008     DSP2833x_CodeStartBranch.obj (.text)
-                  000095ee    00000002     rts2800_fpu32.lib : pre_init.c.obj (.text)
-                  000095f0    00000001     c2833xBoard_Realtime_Support.obj (.text)
-                  000095f1    00000001     rts2800_fpu32.lib : startup.c.obj (.text)
+                  00009463    00000035     MW_c28xx_adc.obj (.text)
+                  00009498    0000002a     rtGetNaN.obj (.text)
+                  000094c2    00000029     rts2800_fpu32.lib : exit.c.obj (.text)
+                  000094eb    00000028     DSP2833x_PieCtrl.obj (.text)
+                  00009513    00000024     rts2800_fpu32.lib : cpy_tbl.c.obj (.text)
+                  00009537    00000020     DSP2833x_PieVect.obj (.text)
+                  00009557    0000001d     rts2800_fpu32.lib : memcpy.c.obj (.text)
+                  00009574    00000019     rts2800_fpu32_fast_supplement_coff.lib : div_f32.obj (.text)
+                  0000958d    00000017     MW_c28xx_pwm.obj (.text)
+                  000095a4    00000014     DSP2833x_Adc.obj (.text)
+                  000095b8    00000014     MW_c28xGlobalInterrupts.obj (.text)
+                  000095cc    00000012     rts2800_fpu32.lib : args_main.c.obj (.text)
+                  000095de    00000009                       : _lock.c.obj (.text)
+                  000095e7    00000008     DSP2833x_CodeStartBranch.obj (.text)
+                  000095ef    00000002     rts2800_fpu32.lib : pre_init.c.obj (.text)
+                  000095f1    00000001     c2833xBoard_Realtime_Support.obj (.text)
+                  000095f2    00000001     rts2800_fpu32.lib : startup.c.obj (.text)
 
 DevEmuRegsFile 
 *          1    00000880    000000d0     UNINITIALIZED
@@ -396,7 +396,7 @@ MODULE SUMMARY
        MW_c28xx_board.obj                 132    0                  0                 
        ert_main.obj                       80     4                  3                 
        rtGetInf.obj                       68     0                  0                 
-       MW_c28xx_adc.obj                   52     0                  0                 
+       MW_c28xx_adc.obj                   53     0                  0                 
        rtGetNaN.obj                       42     2                  0                 
        DSP2833x_PieCtrl.obj               40     0                  0                 
        MW_c28xGlobalInterrupts.obj        20     4                  1                 
@@ -408,7 +408,7 @@ MODULE SUMMARY
        DSP2833x_usDelay.obj               4      0                  0                 
        c2833xBoard_Realtime_Support.obj   1      0                  0                 
     +--+----------------------------------+------+------------------+--------------------+
-       Total:                             4939   379                2880              
+       Total:                             4940   379                2880              
                                                                                       
     C:/ProgramData/MATLAB/tic2000/3P.instrset/tic28xcodegentools.instrset/ti-cgt-c2000_22.6.0.LTS/lib/rts2800_fpu32.lib
        e_fmodf.c.obj                      207    6                  0                 
@@ -431,7 +431,7 @@ MODULE SUMMARY
                                                                                       
        Stack:                             0      0                  64                
     +--+----------------------------------+------+------------------+--------------------+
-       Grand Total:                       5482   411                2954              
+       Grand Total:                       5483   411                2954              
 
 
 GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
@@ -567,8 +567,8 @@ page  address   name
 1     0000d000  .bss                            
 1     0000d000  .data                           
 abs   ffffffff  .text                           
-0     000094c1  C$$EXIT                         
-0     00009573  FS$$DIV                         
+0     000094c2  C$$EXIT                         
+0     00009574  FS$$DIV                         
 0     00008bdc  _ADCINT_ISR                     
 0     00380080  _ADC_cal                        
 1     00000b00  _AdcMirror                      
@@ -643,7 +643,7 @@ abs   ffffffff  .text
 0     00008cb8  _EQEP2_INT_ISR                  
 1     00006b00  _EQep1Regs                      
 1     00006b40  _EQep2Regs                      
-0     00009509  _EnableInterrupts               
+0     0000950a  _EnableInterrupts               
 1     00000a80  _FlashRegs                      
 1     0000d139  _GPIO_oneTimeInit               
 1     00006f80  _GpioCtrlRegs                   
@@ -660,11 +660,11 @@ abs   ffffffff  .text
 0     00008b32  _ILLEGAL_ISR                    
 0     00008af6  _INT13_ISR                      
 0     00008b00  _INT14_ISR                      
-0     000095a3  _InitAdc                        
+0     000095a4  _InitAdc                        
 0     00009210  _InitCpuTimers                  
 0     00008f9f  _InitPeripheralClocks           
-0     000094ea  _InitPieCtrl                    
-0     00009536  _InitPieVectTable               
+0     000094eb  _InitPieCtrl                    
+0     00009537  _InitPieVectTable               
 0     00008f4f  _InitPll                        
 0     00008f34  _InitSysCtrl                    
 0     000091f1  _InitXintf16Gpio                
@@ -753,44 +753,44 @@ abs   ffffffff  ___c_args__
 abs   ffffffff  ___etext__                      
 abs   ffffffff  ___pinit__                      
 abs   ffffffff  ___text__                       
-0     000095cb  __args_main                     
+0     000095cc  __args_main                     
 1     0000d13a  __lock                          
-0     000095e5  __nop                           
-0     000095e1  __register_lock                 
-0     000095dd  __register_unlock               
+0     000095e6  __nop                           
+0     000095e2  __register_lock                 
+0     000095de  __register_unlock               
 1     00000400  __stack                         
-0     000095f1  __system_post_cinit             
-0     000095ee  __system_pre_init               
+0     000095f2  __system_post_cinit             
+0     000095ef  __system_pre_init               
 1     0000d13c  __unlock                        
-0     000094c1  _abort                          
-0     000095f0  _c2000_flash_init               
+0     000094c2  _abort                          
+0     000095f1  _c2000_flash_init               
 0     00009335  _c_int00                        
-0     00009463  _config_ADC_A                   
-0     000095a2  _config_ePWMSyncSource          
-0     0000958c  _config_ePWM_GPIO               
-0     0000959a  _config_ePWM_TBSync             
+0     00009463  _config_ADC_B                   
+0     000095a3  _config_ePWMSyncSource          
+0     0000958d  _config_ePWM_GPIO               
+0     0000959b  _config_ePWM_TBSync             
 0     000092dd  _configureTimer0                
-0     00009512  _copy_in                        
+0     00009513  _copy_in                        
 0     00009314  _disableTimer0Interrupt         
 0     0000930c  _enableTimer0Interrupt          
-0     000094c3  _exit                           
+0     000094c4  _exit                           
 0     00009284  _floor                          
 0     00009284  _floorf                         
 0     0000902b  _fmod                           
 0     0000902b  _fmodf                          
-0     000095c3  _globalInterruptDisable         
-0     000095b7  _globalInterruptEnable          
+0     000095c4  _globalInterruptDisable         
+0     000095b8  _globalInterruptEnable          
 0     0000918c  _init_board                     
 0     0000938c  _main                           
-0     00009556  _memcpy                         
+0     00009557  _memcpy                         
 0     0000932a  _restoreTimer0Interrupt         
 0     00008e02  _rsvd_ISR                       
 0     0000941f  _rtGetInf                       
 0     00009438  _rtGetInfF                      
 0     00009441  _rtGetMinusInf                  
 0     0000945a  _rtGetMinusInfF                 
-0     00009497  _rtGetNaN                       
-0     000094b0  _rtGetNaNF                      
+0     00009498  _rtGetNaN                       
+0     000094b1  _rtGetNaNF                      
 1     0000d124  _rtInf                          
 1     0000d12a  _rtInfF                         
 0     00009122  _rtIsInf                        
@@ -942,31 +942,31 @@ page  address   name
 0     00009438  _rtGetInfF                      
 0     00009441  _rtGetMinusInf                  
 0     0000945a  _rtGetMinusInfF                 
-0     00009463  _config_ADC_A                   
-0     00009497  _rtGetNaN                       
-0     000094b0  _rtGetNaNF                      
-0     000094c1  C$$EXIT                         
-0     000094c1  _abort                          
-0     000094c3  _exit                           
-0     000094ea  _InitPieCtrl                    
-0     00009509  _EnableInterrupts               
-0     00009512  _copy_in                        
-0     00009536  _InitPieVectTable               
-0     00009556  _memcpy                         
-0     00009573  FS$$DIV                         
-0     0000958c  _config_ePWM_GPIO               
-0     0000959a  _config_ePWM_TBSync             
-0     000095a2  _config_ePWMSyncSource          
-0     000095a3  _InitAdc                        
-0     000095b7  _globalInterruptEnable          
-0     000095c3  _globalInterruptDisable         
-0     000095cb  __args_main                     
-0     000095dd  __register_unlock               
-0     000095e1  __register_lock                 
-0     000095e5  __nop                           
-0     000095ee  __system_pre_init               
-0     000095f0  _c2000_flash_init               
-0     000095f1  __system_post_cinit             
+0     00009463  _config_ADC_B                   
+0     00009498  _rtGetNaN                       
+0     000094b1  _rtGetNaNF                      
+0     000094c2  C$$EXIT                         
+0     000094c2  _abort                          
+0     000094c4  _exit                           
+0     000094eb  _InitPieCtrl                    
+0     0000950a  _EnableInterrupts               
+0     00009513  _copy_in                        
+0     00009537  _InitPieVectTable               
+0     00009557  _memcpy                         
+0     00009574  FS$$DIV                         
+0     0000958d  _config_ePWM_GPIO               
+0     0000959b  _config_ePWM_TBSync             
+0     000095a3  _config_ePWMSyncSource          
+0     000095a4  _InitAdc                        
+0     000095b8  _globalInterruptEnable          
+0     000095c4  _globalInterruptDisable         
+0     000095cc  __args_main                     
+0     000095de  __register_unlock               
+0     000095e2  __register_lock                 
+0     000095e6  __nop                           
+0     000095ef  __system_pre_init               
+0     000095f1  _c2000_flash_init               
+0     000095f2  __system_post_cinit             
 0     00380080  _ADC_cal                        
 1     00000400  __stack                         
 1     00000440  _PartIdRegs                     

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_OL3".
  *
- * Model version              : 9.18
+ * Model version              : 9.21
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Nov 27 12:30:30 2024
+ * C source code generated on : Wed Dec  4 19:44:34 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -33,21 +33,21 @@ P_Z_OL3_T Z_OL3_P = {
   /* Variable: IoutNom
    * Referenced by: '<S1>/MATLAB Function'
    */
-  3.0,
+  1.5,
 
   /* Variable: Rload
    * Referenced by:
-   *   '<S1>/Constant1'
+   *   '<S1>/Bias3'
    *   '<S1>/Gain4'
    */
-  16.666666666666668,
+  33.333333333333336,
 
   /* Variable: RserL
    * Referenced by:
    *   '<S1>/MATLAB Function'
    *   '<S4>/IL2Iout'
    */
-  0.055440000000000017,
+  0.00878,
 
   /* Variable: TBPRD
    * Referenced by: '<S1>/Gain1'
@@ -64,13 +64,13 @@ P_Z_OL3_T Z_OL3_P = {
   /* Variable: VinNom
    * Referenced by:
    *   '<S1>/MATLAB Function'
-   *   '<S1>/Constant'
-   *   '<S1>/Constant3'
+   *   '<S1>/Bias1'
+   *   '<S1>/Bias4'
    *   '<S1>/Gain'
    *   '<S1>/Gain5'
    *   '<S4>/Constant'
    */
-  30.0,
+  25.0,
 
   /* Variable: VoutMax
    * Referenced by:
@@ -92,7 +92,7 @@ P_Z_OL3_T Z_OL3_P = {
    *   '<S4>/Inductor TF2'
    *   '<S4>/Inductor TF3'
    */
-  { 1.0, -0.99720391634389294 },
+  { 1.0, -0.99985952986685311 },
 
   /* Variable: zden_plant_v
    * Referenced by: '<S4>/Capacitor TF'
@@ -105,12 +105,12 @@ P_Z_OL3_T Z_OL3_P = {
    *   '<S4>/Inductor TF2'
    *   '<S4>/Inductor TF3'
    */
-  { 0.0, 0.05043440938144 },
+  { 0.0, 0.015998876212623834 },
 
   /* Variable: znum_plant_v
    * Referenced by: '<S4>/Capacitor TF'
    */
-  { 0.051799999999999992, 0.048199999999999993 },
+  { 0.060000000000000012, 0.040000000000000015 },
 
   /* Expression: 0
    * Referenced by: '<S4>/Memory1'
@@ -145,5 +145,15 @@ P_Z_OL3_T Z_OL3_P = {
   /* Expression: 0
    * Referenced by: '<S1>/Saturation'
    */
-  0.0
+  0.0,
+
+  /* Expression: -1
+   * Referenced by: '<S1>/Gain7'
+   */
+  -1.0,
+
+  /* Expression: 1
+   * Referenced by: '<S1>/Bias'
+   */
+  1.0
 };

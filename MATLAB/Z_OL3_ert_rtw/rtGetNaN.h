@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_OL3".
  *
- * Model version              : 9.18
+ * Model version              : 9.21
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Nov 27 12:30:30 2024
+ * C source code generated on : Wed Dec  4 19:44:34 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000

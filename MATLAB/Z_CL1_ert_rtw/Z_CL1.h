@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_CL1".
  *
- * Model version              : 9.21
+ * Model version              : 9.22
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Thu Nov 28 13:53:50 2024
+ * C source code generated on : Wed Dec  4 18:43:16 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -60,7 +60,7 @@ typedef struct {
   real_T CapacitorTF;                  /* '<S5>/Capacitor TF' */
   real_T discreteintegrator;           /* '<S7>/discrete integrator' */
   real_T Gain1_i;                      /* '<S1>/Gain1' */
-  real_T Vout_ref_b;                   /* '<S1>/Sum' */
+  real_T Vout_ref_n;                   /* '<S1>/Bias4' */
   real_T Gain4;                        /* '<S3>/Gain4' */
 } B_Z_CL1_T;
 
@@ -97,7 +97,7 @@ struct P_Z_CL1_T_ {
                                         */
   real_T Rload;                        /* Variable: Rload
                                         * Referenced by:
-                                        *   '<S1>/Constant1'
+                                        *   '<S1>/Bias3'
                                         *   '<S1>/Gain4'
                                         */
   real_T RserL;                        /* Variable: RserL
@@ -118,7 +118,7 @@ struct P_Z_CL1_T_ {
                                         */
   real_T VinNom;                       /* Variable: VinNom
                                         * Referenced by:
-                                        *   '<S1>/Constant'
+                                        *   '<S1>/Bias4'
                                         *   '<S1>/Constant3'
                                         *   '<S1>/Gain'
                                         *   '<S1>/Gain5'

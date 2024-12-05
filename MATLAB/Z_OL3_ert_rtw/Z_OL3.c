@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_OL3".
  *
- * Model version              : 9.18
+ * Model version              : 9.21
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Nov 27 12:30:30 2024
+ * C source code generated on : Wed Dec  4 19:44:34 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -211,11 +211,11 @@ void Z_OL3_initialize(void)
        EPwm2Regs.TBCTL.bit.SYNCOSEL   = 1;          // Sync output select
        EPwm2Regs.TBCTL.bit.PRDLD      = 0;          // Shadow select
        EPwm2Regs.TBCTL.bit.PHSEN      = 1;          // Phase load enable
-       EPwm2Regs.TBCTL.bit.PHSDIR     = 0;          // Phase Direction
+       EPwm2Regs.TBCTL.bit.PHSDIR     = 1;          // Phase Direction
        EPwm2Regs.TBCTL.bit.HSPCLKDIV  = 0;          // High speed time pre-scale
        EPwm2Regs.TBCTL.bit.CLKDIV     = 0;          // Timebase clock pre-scale
      */
-    EPwm2Regs.TBCTL.all = (EPwm2Regs.TBCTL.all & ~0x3FBF) | 0x16;
+    EPwm2Regs.TBCTL.all = (EPwm2Regs.TBCTL.all & ~0x3FBF) | 0x2016;
 
     /* // Time-Base Phase Register
        EPwm2Regs.TBPHS.half.TBPHS     = 0;          // Phase offset register
@@ -813,9 +813,8 @@ interrupt void SEQ1INT(void)
           rtb_InductorTF2 = Z_OL3_P.VoutMax - Z_OL3_P.VinNom;
 
           /* Gain: '<S1>/Gain6' incorporates:
-           *  Constant: '<S1>/Constant3'
+           *  Bias: '<S1>/Bias1'
            *  Gain: '<S1>/Gain5'
-           *  Sum: '<S1>/Sum2'
            */
           u0 = 1.0 / rtb_InductorTF2 * (rtb_CapacitorTF - Z_OL3_P.VinNom) *
             Z_OL3_P.ADC_mapping;
@@ -854,8 +853,7 @@ interrupt void SEQ1INT(void)
             AdcRegs.ADCTRL2.bit.RST_SEQ1 = 0x1U;/* Sequencer reset*/
           }
 
-          /* Sum: '<S1>/Sum' incorporates:
-           *  Constant: '<S1>/Constant'
+          /* Bias: '<S1>/Bias4' incorporates:
            *  Gain: '<S1>/Gain'
            *  Gain: '<S1>/Gain2'
            */
@@ -878,9 +876,12 @@ interrupt void SEQ1INT(void)
             3.0) / rtb_InductorTF2) + rtb_InductorTF2_tmp;
 
           /* DataTypeConversion: '<S1>/Cast To Single2' incorporates:
+           *  Bias: '<S1>/Bias'
            *  Gain: '<S1>/Gain1'
+           *  Gain: '<S1>/Gain7'
            */
-          u0 = floor(Z_OL3_P.TBPRD * rtb_InductorTF2);
+          u0 = floor((Z_OL3_P.Gain7_Gain * rtb_InductorTF2 + Z_OL3_P.Bias_Bias) *
+                     Z_OL3_P.TBPRD);
           if (rtIsNaN(u0) || rtIsInf(u0)) {
             u0 = 0.0;
           } else {
@@ -956,11 +957,10 @@ interrupt void SEQ1INT(void)
             Z_OL3_P.zden_plant_i[0];
 
           /* Update for Memory: '<S4>/Memory3' incorporates:
-           *  Constant: '<S1>/Constant1'
+           *  Bias: '<S1>/Bias3'
            *  Gain: '<S1>/Gain3'
            *  Gain: '<S1>/Gain4'
            *  Product: '<S4>/Divide'
-           *  Sum: '<S1>/Sum1'
            */
           Z_OL3_DW.Memory3_PreviousInput = rtb_CapacitorTF / (1.0 /
             Z_OL3_P.ADC_mapping * Z_OL3_B.ADC_o2 * Z_OL3_P.Rload + 0.5 *
