@@ -666,6 +666,10 @@ DocumentPath=Project Outputs for proj_LAB_main\BOM_proj_LAB_main.xlsx
 DItemRevisionGUID=
 
 [GeneratedDocument2]
+DocumentPath=Project Outputs for proj_LAB_main\Design Rule Check - pcb_LAB_rev0.html
+DItemRevisionGUID=
+
+[GeneratedDocument3]
 DocumentPath=Project Outputs for proj_LAB_main\Design Rule Check - pcb_LAB_rev1.html
 DItemRevisionGUID=
 

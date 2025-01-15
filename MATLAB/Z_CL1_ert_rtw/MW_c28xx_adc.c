@@ -6,7 +6,7 @@
 #include "Z_CL1.h"
 #include "Z_CL1_private.h"
 
-void config_ADC_B(uint16_T maxConv, uint16_T adcChselSEQ1Reg, uint16_T
+void config_ADC_A(uint16_T maxConv, uint16_T adcChselSEQ1Reg, uint16_T
                   adcChselSEQ2Reg, uint16_T adcChselSEQ3Reg, uint16_T
                   adcChselSEQ4Reg)
 {
@@ -20,13 +20,13 @@ void config_ADC_B(uint16_T maxConv, uint16_T adcChselSEQ1Reg, uint16_T
                                   /* 0:Start-Stop or continuous sequencer mode*/
   AdcRegs.ADCTRL3.bit.ADCBGRFDN = 0x3U;/* Bandgap and reference powered up*/
   AdcRegs.ADCTRL3.bit.SMODE_SEL = 0U ;/* 1:Simultaneous, 0:Sequential sampling*/
-  AdcRegs.ADCMAXCONV.bit.MAX_CONV2 = maxConv;
+  AdcRegs.ADCMAXCONV.bit.MAX_CONV1 = maxConv;
                          /* Number of conversions in CONV2 when using B module*/
   AdcRegs.ADCTRL1.bit.SEQ_CASC = 0U;   /* 1:Cascaded, 0:Dual sequencer mode*/
-  AdcRegs.ADCCHSELSEQ3.all = adcChselSEQ3Reg;/* Channels for conversion*/
-  AdcRegs.ADCCHSELSEQ4.all = adcChselSEQ4Reg;/* Channels for conversion        */
-  AdcRegs.ADCTRL2.bit.INT_MOD_SEQ2 = 0U;
-  AdcRegs.ADCTRL2.bit.INT_ENA_SEQ2 = 1U;
-  AdcRegs.ADCTRL2.bit.RST_SEQ2 = 0x1U; /* Reset SEQ2*/
-  AdcRegs.ADCTRL2.bit.EPWM_SOCB_SEQ2 = 1U;/*Enable ePWMxB SOC for SEQ2*/
+  AdcRegs.ADCCHSELSEQ1.all = adcChselSEQ1Reg;/* Channels for conversion*/
+  AdcRegs.ADCCHSELSEQ2.all = adcChselSEQ2Reg;/* Channels for conversion*/
+  AdcRegs.ADCTRL2.bit.INT_MOD_SEQ1 = 0U;
+  AdcRegs.ADCTRL2.bit.INT_ENA_SEQ1 = 1U;
+  AdcRegs.ADCTRL2.bit.RST_SEQ1 = 0x1U; /* Reset SEQ1*/
+  AdcRegs.ADCTRL2.bit.EPWM_SOCA_SEQ1 = 1U;/* Enable ePWMxA SOC */
 }

@@ -4,7 +4,7 @@
  * Code generation for Simulink model "Z_OL1".
  *
  * Simulink Coder version                : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Dec  4 19:00:32 2024
+ * C source code generated on : Wed Jan 15 09:51:04 2025
  *
  * Note that the generated code is not dependent on this header file.
  * The file is used in cojuction with the automatic build procedure.

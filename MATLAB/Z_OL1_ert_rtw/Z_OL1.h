@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_OL1".
  *
- * Model version              : 9.26
+ * Model version              : 9.41
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Dec  4 19:00:32 2024
+ * C source code generated on : Wed Jan 15 09:51:04 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -55,95 +55,36 @@ typedef struct {
   real_T ADC_o2;                       /* '<S1>/ADC' */
 } B_Z_OL1_T;
 
-/* Block states (default storage) for system '<Root>' */
-typedef struct {
-  real_T InductorTF1_states;           /* '<S4>/Inductor TF1' */
-  real_T CapacitorTF_states;           /* '<S4>/Capacitor TF' */
-  real_T Memory3_PreviousInput;        /* '<S4>/Memory3' */
-  real_T Memory1_PreviousInput;        /* '<S4>/Memory1' */
-} DW_Z_OL1_T;
-
 /* Parameters (default storage) */
 struct P_Z_OL1_T_ {
   real_T ADC_mapping;                  /* Variable: ADC_mapping
                                         * Referenced by:
-                                        *   '<S1>/Gain2'
-                                        *   '<S1>/Gain3'
-                                        *   '<S1>/Gain6'
-                                        *   '<S1>/Saturation'
+                                        *   '<S1>/Gain10'
+                                        *   '<S1>/Gain11'
                                         */
   real_T IoutNom;                      /* Variable: IoutNom
                                         * Referenced by: '<S1>/MATLAB Function'
                                         */
-  real_T Rload;                        /* Variable: Rload
-                                        * Referenced by:
-                                        *   '<S1>/Bias3'
-                                        *   '<S1>/Gain4'
-                                        */
   real_T RserL;                        /* Variable: RserL
-                                        * Referenced by:
-                                        *   '<S1>/MATLAB Function'
-                                        *   '<S4>/IL2Iout'
+                                        * Referenced by: '<S1>/MATLAB Function'
                                         */
   real_T TBPRD;                        /* Variable: TBPRD
                                         * Referenced by: '<S1>/Gain1'
                                         */
-  real_T Tsw;                          /* Variable: Tsw
-                                        * Referenced by:
-                                        *   '<S1>/MATLAB Function'
-                                        *   '<S4>/Constant1'
+  real_T VfbMax;                       /* Variable: VfbMax
+                                        * Referenced by: '<S1>/Gain12'
                                         */
   real_T VinNom;                       /* Variable: VinNom
-                                        * Referenced by:
-                                        *   '<S1>/MATLAB Function'
-                                        *   '<S1>/Bias1'
-                                        *   '<S1>/Bias4'
-                                        *   '<S1>/Gain'
-                                        *   '<S1>/Gain5'
-                                        *   '<S4>/Constant'
+                                        * Referenced by: '<S1>/MATLAB Function'
                                         */
-  real_T VoutMax;                      /* Variable: VoutMax
-                                        * Referenced by:
-                                        *   '<S1>/Gain'
-                                        *   '<S1>/Gain5'
+  real_T VoutNom;                      /* Variable: VoutNom
+                                        * Referenced by: '<S1>/Constant2'
                                         */
-  real_T deadtimesw;                   /* Variable: deadtimesw
-                                        * Referenced by:
-                                        *   '<S1>/MATLAB Function'
-                                        *   '<S4>/Constant1'
+  real_T Gain_Gain;                    /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain'
                                         */
-  real_T zden_plant_i[2];              /* Variable: zden_plant_i
-                                        * Referenced by: '<S4>/Inductor TF1'
-                                        */
-  real_T zden_plant_v[2];              /* Variable: zden_plant_v
-                                        * Referenced by: '<S4>/Capacitor TF'
-                                        */
-  real_T znum_plant_i[2];              /* Variable: znum_plant_i
-                                        * Referenced by: '<S4>/Inductor TF1'
-                                        */
-  real_T znum_plant_v[2];              /* Variable: znum_plant_v
-                                        * Referenced by: '<S4>/Capacitor TF'
-                                        */
-  real_T Memory3_InitialCondition;     /* Expression: 0
-                                        * Referenced by: '<S4>/Memory3'
-                                        */
-  real_T InductorTF1_InitialStates;    /* Expression: 0
-                                        * Referenced by: '<S4>/Inductor TF1'
-                                        */
-  real_T Memory1_InitialCondition;     /* Expression: 0
-                                        * Referenced by: '<S4>/Memory1'
-                                        */
-  real_T CapacitorTF_InitialStates;    /* Expression: 0
-                                        * Referenced by: '<S4>/Capacitor TF'
-                                        */
-  real_T Saturation_LowerSat;          /* Expression: 0
-                                        * Referenced by: '<S1>/Saturation'
-                                        */
-  real_T Gain7_Gain;                   /* Expression: -1
-                                        * Referenced by: '<S1>/Gain7'
-                                        */
-  real_T Bias_Bias;                    /* Expression: 1
-                                        * Referenced by: '<S1>/Bias'
+  real_T Gain4_Gain;                   /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain4'
                                         */
 };
 
@@ -157,9 +98,6 @@ extern P_Z_OL1_T Z_OL1_P;
 
 /* Block signals (default storage) */
 extern B_Z_OL1_T Z_OL1_B;
-
-/* Block states (default storage) */
-extern DW_Z_OL1_T Z_OL1_DW;
 
 /* Model entry point functions */
 extern void Z_OL1_initialize(void);
@@ -205,10 +143,7 @@ extern "C"
  * '<S1>'   : 'Z_OL1/ADC-PWM Subsystem'
  * '<S2>'   : 'Z_OL1/HWI_SEQ1INT'
  * '<S3>'   : 'Z_OL1/ADC-PWM Subsystem/MATLAB Function'
- * '<S4>'   : 'Z_OL1/ADC-PWM Subsystem/emulated_plant'
- * '<S5>'   : 'Z_OL1/ADC-PWM Subsystem/emulated_plant/IL2Iout'
- * '<S6>'   : 'Z_OL1/ADC-PWM Subsystem/emulated_plant/duty2VL4'
- * '<S7>'   : 'Z_OL1/HWI_SEQ1INT/ECSoC'
- * '<S8>'   : 'Z_OL1/HWI_SEQ1INT/ECSoC/ECSimCodegen'
+ * '<S4>'   : 'Z_OL1/HWI_SEQ1INT/ECSoC'
+ * '<S5>'   : 'Z_OL1/HWI_SEQ1INT/ECSoC/ECSimCodegen'
  */
 #endif                                 /* Z_OL1_h_ */

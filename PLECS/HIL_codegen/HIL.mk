@@ -1,4 +1,4 @@
-CROSS            ?= "C:/Users/marzu/Downloads/PLECS_RT_Box_3.0.6_win/PLECS_RT_Box/bin/win/arm-none-eabi/bin/arm-none-eabi-"
+CROSS            ?= "C:/Users/nicholas/OneDrive/Documents/Plexim/CoderTargets/PLECS_RT_Box/bin/win/arm-none-eabi/bin/arm-none-eabi-"
 CFLAGS           := -Wall -O2 -c -g -fmessage-length=0 -DEXTERNAL_MODE=1 \
    -fgcse-after-reload \
    -finline-functions \
@@ -21,11 +21,11 @@ CFLAGS           := -Wall -O2 -c -g -fmessage-length=0 -DEXTERNAL_MODE=1 \
    -funsafe-math-optimizations -fopt-info-vec --param max-completely-peeled-insns=1000 --param max-completely-peel-times=100
 CC               = $(CROSS)gcc
 STRIP            = $(CROSS)strip
-INCLUDE          := -I"C:/Users/marzu/Downloads/PLECS_RT_Box_3.0.6_win/PLECS_RT_Box/include/rtbox"
-LIBS             := -L"C:/Users/marzu/Downloads/PLECS_RT_Box_3.0.6_win/PLECS_RT_Box/lib/rtbox" -L"C:/Users/marzu/Downloads/PLECS_RT_Box_3.0.6_win/PLECS_RT_Box/lib/rtbox/OpenAmp" \
-                    -L"C:/Users/marzu/Downloads/PLECS_RT_Box_3.0.6_win/PLECS_RT_Box/lib/rtbox/Xilinx" -lplexim_hil -lopen_amp -lbaremetal_remote \
+INCLUDE          := -I"C:/Users/nicholas/OneDrive/Documents/Plexim/CoderTargets/PLECS_RT_Box/include/rtbox"
+LIBS             := -L"C:/Users/nicholas/OneDrive/Documents/Plexim/CoderTargets/PLECS_RT_Box/lib/rtbox" -L"C:/Users/nicholas/OneDrive/Documents/Plexim/CoderTargets/PLECS_RT_Box/lib/rtbox/OpenAmp" \
+                    -L"C:/Users/nicholas/OneDrive/Documents/Plexim/CoderTargets/PLECS_RT_Box/lib/rtbox/Xilinx" -lplexim_hil -lopen_amp -lbaremetal_remote \
                     -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-LFLAGS           := -g -Wl,-T -Wl,"C:/Users/marzu/Downloads/PLECS_RT_Box_3.0.6_win/PLECS_RT_Box/build/rtbox.ld"
+LFLAGS           := -g -Wl,-T -Wl,"C:/Users/nicholas/OneDrive/Documents/Plexim/CoderTargets/PLECS_RT_Box/build/rtbox.ld"
 
 undefine GCC_EXEC_PREFIX
 

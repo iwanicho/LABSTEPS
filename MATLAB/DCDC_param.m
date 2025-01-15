@@ -1,6 +1,6 @@
 %% Power Converter
 fsw = 10e3; %Hz 	    switching frequency
-Tsw = 1/fsw; %s	        switching period
+Tsw = 2.8e-6; %s	        switching period
 deadtimesw = 2.8e-6; %s switching deadtime
 VFdiodeIGBT = 2.27; %V	diode's forward voltage
 VthIGBT = 0.5; %V       IGBT treshold voltage normalized
@@ -30,8 +30,8 @@ ILvalley = ILnom-dIL/2
 % boost inductor, continuous mode
 D = 1 - VinNom/VoutNom % openloop duty cycle for 1leg
 D_3 = D; % openloop duty cycle for 3leg
-L = VinNom*D*Tsw/dIL %H inductor for boost operation
-RserL = 8.78e-3 %Ohm from Open Magnetics
+L = 3.6*1e-3 %VinNom*D*Tsw/dIL %H inductor for boost operation
+RserL = 500e-3 %Ohm from Open Magnetics
 
 C = 1000e-6 %H % from guasch datasheet
 % assume RserC = (1e-5)/C, but not used in control tuning
@@ -42,10 +42,10 @@ RserC = (1e-5)/C %Ohm
 %
 Iin = IoutNom/(1-D);
 VdropL = Iin*RserL;
-D = (1 - (VinNom-VdropL)/VoutNom) + deadtimesw/Tsw
+D = (1 - (VinNom-VdropL)/VoutNom)
 %}
 
 % interleaved OL correction
 Iin = IoutNom/(1-D_3);
 VdropL = Iin*RserL/3;
-D_3 = (1 - (VinNom-VdropL)/VoutNom) + deadtimesw/Tsw
+D_3 = (1 - (VinNom-VdropL)/VoutNom)

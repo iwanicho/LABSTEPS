@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_CL3".
  *
- * Model version              : 9.45
+ * Model version              : 9.82
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Dec  4 13:18:47 2024
+ * C source code generated on : Wed Jan  8 18:16:51 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -63,14 +63,14 @@ typedef struct {
   real_T analogdial_o5;                /* '<S1>/analog dial' */
   real_T analogdial_o6;                /* '<S1>/analog dial' */
   real_T VoutRef;
-  real_T Sum3_c;                       /* '<S1>/Sum3' */
+  real_T IL3fb;                        /* '<S1>/Fcn7' */
   real_T Memory;                       /* '<S7>/Memory' */
   real_T discreteintegrator;           /* '<S7>/discrete integrator' */
-  real_T Gain12;                       /* '<S1>/Gain12' */
+  real_T Vfb;                          /* '<S1>/Gain12' */
   real_T Gain13;                       /* '<S3>/Gain13' */
   real_T IL;                           /* '<S3>/Saturation2' */
   real_T Gain7;                        /* '<S1>/Gain7' */
-  real_T Gain;                         /* '<S5>/Gain' */
+  real_T Gain;                         /* '<S6>/Gain' */
   B_VL2duty_Z_CL3_T sf_VL2duty_j;      /* '<S7>/VL2duty' */
   B_VL2duty_Z_CL3_T sf_VL2duty_h;      /* '<S6>/VL2duty' */
   B_VL2duty_Z_CL3_T sf_VL2duty;        /* '<S5>/VL2duty' */
@@ -79,13 +79,13 @@ typedef struct {
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T discreteintegrator_states;    /* '<S3>/discrete integrator' */
-  real_T discreteintegrator_states_a;  /* '<S5>/discrete integrator' */
   real_T discreteintegrator_states_l;  /* '<S6>/discrete integrator' */
+  real_T discreteintegrator_states_a;  /* '<S5>/discrete integrator' */
   real_T discreteintegrator_states_c;  /* '<S7>/discrete integrator' */
-  real_T Memory_PreviousInput;         /* '<S5>/Memory' */
+  real_T Memory_PreviousInput;         /* '<S6>/Memory' */
   real_T Memory2_PreviousInput;        /* '<S3>/Memory2' */
   real_T Memory_PreviousInput_g;       /* '<S3>/Memory' */
-  real_T Memory_PreviousInput_c;       /* '<S6>/Memory' */
+  real_T Memory_PreviousInput_m;       /* '<S5>/Memory' */
   real_T Memory_PreviousInput_p;       /* '<S7>/Memory' */
 } DW_Z_CL3_T;
 
@@ -101,13 +101,6 @@ struct P_Z_CL3_T_ {
   real_T ILmax;                        /* Variable: ILmax
                                         * Referenced by: '<S3>/Saturation2'
                                         */
-  real_T IfbMax;                       /* Variable: IfbMax
-                                        * Referenced by:
-                                        *   '<S1>/Constant2'
-                                        *   '<S1>/Gain13'
-                                        *   '<S1>/Gain14'
-                                        *   '<S1>/Gain15'
-                                        */
   real_T RserL;                        /* Variable: RserL
                                         * Referenced by: '<S3>/Iout2IL2'
                                         */
@@ -116,12 +109,6 @@ struct P_Z_CL3_T_ {
                                         *   '<S1>/Gain1'
                                         *   '<S1>/Gain6'
                                         *   '<S1>/Gain7'
-                                        */
-  real_T Tsw;                          /* Variable: Tsw
-                                        * Referenced by:
-                                        *   '<S5>/VL2duty'
-                                        *   '<S6>/VL2duty'
-                                        *   '<S7>/VL2duty'
                                         */
   real_T VLlim;                        /* Variable: VLlim
                                         * Referenced by:
@@ -141,12 +128,6 @@ struct P_Z_CL3_T_ {
                                         */
   real_T VoutNom;                      /* Variable: VoutNom
                                         * Referenced by: '<S1>/Constant5'
-                                        */
-  real_T deadtimesw;                   /* Variable: deadtimesw
-                                        * Referenced by:
-                                        *   '<S5>/VL2duty'
-                                        *   '<S6>/VL2duty'
-                                        *   '<S7>/VL2duty'
                                         */
   real_T kaw_i;                        /* Variable: kaw_i
                                         * Referenced by:
@@ -190,7 +171,7 @@ struct P_Z_CL3_T_ {
                                         *   '<S7>/discrete integrator'
                                         */
   real_T Memory_InitialCondition;      /* Expression: 0
-                                        * Referenced by: '<S5>/Memory'
+                                        * Referenced by: '<S6>/Memory'
                                         */
   real_T Memory2_InitialCondition;     /* Expression: 0
                                         * Referenced by: '<S3>/Memory2'
@@ -204,14 +185,14 @@ struct P_Z_CL3_T_ {
   real_T Gain6_Gain;                   /* Expression: 1/3
                                         * Referenced by: '<S3>/Gain6'
                                         */
-  real_T discreteintegrator_InitialSta_m;/* Expression: 0
-                                          * Referenced by: '<S5>/discrete integrator'
-                                          */
-  real_T Memory_InitialCondition_fe;   /* Expression: 0
-                                        * Referenced by: '<S6>/Memory'
-                                        */
   real_T discreteintegrator_InitialSta_e;/* Expression: 0
                                           * Referenced by: '<S6>/discrete integrator'
+                                          */
+  real_T Memory_InitialCondition_l;    /* Expression: 0
+                                        * Referenced by: '<S5>/Memory'
+                                        */
+  real_T discreteintegrator_InitialSta_m;/* Expression: 0
+                                          * Referenced by: '<S5>/discrete integrator'
                                           */
   real_T Memory_InitialCondition_i;    /* Expression: 0
                                         * Referenced by: '<S7>/Memory'

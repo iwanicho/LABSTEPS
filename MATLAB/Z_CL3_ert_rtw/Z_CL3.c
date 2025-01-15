@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_CL3".
  *
- * Model version              : 9.45
+ * Model version              : 9.82
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Dec  4 13:18:47 2024
+ * C source code generated on : Wed Jan  8 18:16:51 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -46,9 +46,8 @@ void Z_CL3_VL2duty(real_T rtu_VLref, real_T rtu_Vin_fb, real_T rtu_Vout_fb,
   real_T x_idx_1;
 
   /* MATLAB Function 'ADC-PWM Subsystem/control/innerLoop_currentControl7/VL2duty': '<S9>:1' */
-  /* '<S9>:1:3' */
-  x_idx_1 = ((rtu_VLref - rtu_Vin_fb) / rtu_Vout_fb + 1.0) + Z_CL3_P.deadtimesw /
-    Z_CL3_P.Tsw;
+  /* '<S9>:1:4' */
+  x_idx_1 = (rtu_VLref - rtu_Vin_fb) / rtu_Vout_fb + 1.0;
   if (!(x_idx_1 > 0.0)) {
     x_idx_1 = 0.0;
   }
@@ -86,13 +85,13 @@ void Z_CL3_initialize(void)
 
   /* states (dwork) */
   Z_CL3_DW.discreteintegrator_states = 0.0;
-  Z_CL3_DW.discreteintegrator_states_a = 0.0;
   Z_CL3_DW.discreteintegrator_states_l = 0.0;
+  Z_CL3_DW.discreteintegrator_states_a = 0.0;
   Z_CL3_DW.discreteintegrator_states_c = 0.0;
   Z_CL3_DW.Memory_PreviousInput = 0.0;
   Z_CL3_DW.Memory2_PreviousInput = 0.0;
   Z_CL3_DW.Memory_PreviousInput_g = 0.0;
-  Z_CL3_DW.Memory_PreviousInput_c = 0.0;
+  Z_CL3_DW.Memory_PreviousInput_m = 0.0;
   Z_CL3_DW.Memory_PreviousInput_p = 0.0;
 
   /* Start for S-Function (HardwareInterrupt_sfun): '<S15>/Hardware Interrupt' incorporates:
@@ -627,7 +626,7 @@ void Z_CL3_initialize(void)
 
   /* System initialize for function-call system: '<Root>/ADC-PWM Subsystem' */
 
-  /* InitializeConditions for Memory: '<S5>/Memory' */
+  /* InitializeConditions for Memory: '<S6>/Memory' */
   Z_CL3_DW.Memory_PreviousInput = Z_CL3_P.Memory_InitialCondition;
 
   /* InitializeConditions for Memory: '<S3>/Memory2' */
@@ -639,14 +638,14 @@ void Z_CL3_initialize(void)
   /* InitializeConditions for DiscreteTransferFcn: '<S3>/discrete integrator' */
   Z_CL3_DW.discreteintegrator_states = Z_CL3_P.discreteintegrator_InitialState;
 
-  /* InitializeConditions for DiscreteTransferFcn: '<S5>/discrete integrator' */
-  Z_CL3_DW.discreteintegrator_states_a = Z_CL3_P.discreteintegrator_InitialSta_m;
-
-  /* InitializeConditions for Memory: '<S6>/Memory' */
-  Z_CL3_DW.Memory_PreviousInput_c = Z_CL3_P.Memory_InitialCondition_fe;
-
   /* InitializeConditions for DiscreteTransferFcn: '<S6>/discrete integrator' */
   Z_CL3_DW.discreteintegrator_states_l = Z_CL3_P.discreteintegrator_InitialSta_e;
+
+  /* InitializeConditions for Memory: '<S5>/Memory' */
+  Z_CL3_DW.Memory_PreviousInput_m = Z_CL3_P.Memory_InitialCondition_l;
+
+  /* InitializeConditions for DiscreteTransferFcn: '<S5>/discrete integrator' */
+  Z_CL3_DW.discreteintegrator_states_a = Z_CL3_P.discreteintegrator_InitialSta_m;
 
   /* InitializeConditions for Memory: '<S7>/Memory' */
   Z_CL3_DW.Memory_PreviousInput_p = Z_CL3_P.Memory_InitialCondition_i;
@@ -686,16 +685,16 @@ interrupt void SEQ1INT(void)
           real_T discreteintegrator_tmp_f;
           real_T discreteintegrator_tmp_k;
           real_T discreteintegrator_tmp_m;
-          real_T rtb_Gain_n;
-          real_T rtb_Sum3_c_tmp;
+          real_T rtb_Gain_p;
+          real_T rtb_IL3fb_tmp;
           real_T rtb_Switch2;
 
-          /* Gain: '<S5>/Gain3' incorporates:
-           *  Constant: '<S3>/Constant1'
-           *  Gain: '<S6>/Gain3'
+          /* Gain: '<S6>/Gain3' incorporates:
+           *  Constant: '<S3>/Constant2'
+           *  Gain: '<S5>/Gain3'
            *  Gain: '<S7>/Gain3'
            */
-          rtb_Sum3_c_tmp = Z_CL3_P.VLlim * Z_CL3_P.VinNom;
+          rtb_IL3fb_tmp = Z_CL3_P.VLlim * Z_CL3_P.VinNom;
 
           /* S-Function (c280xadc): '<S1>/analog dial' */
           {
@@ -709,9 +708,9 @@ interrupt void SEQ1INT(void)
           }
 
           /* Gain: '<S1>/Gain12' incorporates:
-           *  Gain: '<S1>/Gain10'
+           *  Gain: '<S1>/Gain9'
            */
-          Z_CL3_B.Gain12 = 1.0 / Z_CL3_P.ADC_mapping * Z_CL3_B.analogdial_o5 *
+          Z_CL3_B.Vfb = 1.0 / Z_CL3_P.ADC_mapping * Z_CL3_B.analogdial_o4 *
             Z_CL3_P.VfbMax;
 
           /* DiscreteTransferFcn: '<S3>/discrete integrator' incorporates:
@@ -721,7 +720,7 @@ interrupt void SEQ1INT(void)
            *  Sum: '<S3>/Sum14'
            *  Sum: '<S3>/Sum8'
            */
-          discreteintegrator_tmp = (((Z_CL3_P.VoutNom - Z_CL3_B.Gain12) -
+          discreteintegrator_tmp = (((Z_CL3_P.VoutNom - Z_CL3_B.Vfb) -
             Z_CL3_DW.Memory_PreviousInput_g) * Z_CL3_P.ki_v -
             Z_CL3_P.zden_Integrator[1L] * Z_CL3_DW.discreteintegrator_states) /
             Z_CL3_P.zden_Integrator[0];
@@ -733,7 +732,7 @@ interrupt void SEQ1INT(void)
           Z_CL3_B.Gain13 = (Z_CL3_P.znum_Integrator[0] * discreteintegrator_tmp
                             + Z_CL3_P.znum_Integrator[1L] *
                             Z_CL3_DW.discreteintegrator_states) - Z_CL3_P.kp_v *
-            Z_CL3_B.Gain12;
+            Z_CL3_B.Vfb;
 
           /* MATLAB Function: '<S3>/Iout2IL2' incorporates:
            *  Constant: '<S1>/Constant5'
@@ -768,94 +767,11 @@ interrupt void SEQ1INT(void)
           /* Gain: '<S3>/Gain6' */
           Z_CL3_B.discreteintegrator = Z_CL3_P.Gain6_Gain * Z_CL3_B.IL;
 
-          /* Sum: '<S1>/Sum4' incorporates:
-           *  Constant: '<S1>/Constant2'
-           *  Gain: '<S1>/Gain11'
-           *  Gain: '<S1>/Gain15'
+          /* Fcn: '<S1>/Fcn6' incorporates:
+           *  Gain: '<S1>/Gain10'
            */
-          Z_CL3_B.Gain7 = 1.0 / Z_CL3_P.ADC_mapping * Z_CL3_B.analogdial_o6 *
-            (2.0 * Z_CL3_P.IfbMax) - Z_CL3_P.IfbMax;
-
-          /* DiscreteTransferFcn: '<S5>/discrete integrator' incorporates:
-           *  Gain: '<S5>/Gain'
-           *  Memory: '<S5>/Memory'
-           *  Sum: '<S5>/Sum'
-           *  Sum: '<S5>/Sum3'
-           */
-          discreteintegrator_tmp_f = (((Z_CL3_B.discreteintegrator -
-            Z_CL3_B.Gain7) - Z_CL3_DW.Memory_PreviousInput) * Z_CL3_P.ki_i -
-            Z_CL3_P.zden_Integrator[1L] * Z_CL3_DW.discreteintegrator_states_a) /
-            Z_CL3_P.zden_Integrator[0];
-
-          /* Sum: '<S5>/Sum1' incorporates:
-           *  DiscreteTransferFcn: '<S5>/discrete integrator'
-           *  Gain: '<S5>/Gain1'
-           */
-          Z_CL3_B.Gain = (Z_CL3_P.znum_Integrator[0] * discreteintegrator_tmp_f
-                          + Z_CL3_P.znum_Integrator[1L] *
-                          Z_CL3_DW.discreteintegrator_states_a) - Z_CL3_P.kp_i *
-            Z_CL3_B.Gain7;
-
-          /* Switch: '<S8>/Switch2' incorporates:
-           *  Gain: '<S5>/Gain3'
-           *  RelationalOperator: '<S8>/LowerRelop1'
-           */
-          if (Z_CL3_B.Gain > rtb_Sum3_c_tmp) {
-            rtb_Switch2 = rtb_Sum3_c_tmp;
-          } else {
-            /* Sum: '<S5>/Sum4' incorporates:
-             *  Constant: '<S3>/Constant1'
-             */
-            Z_CL3_B.Sum3_c = Z_CL3_P.VinNom - Z_CL3_B.Gain12;
-
-            /* Switch: '<S8>/Switch' incorporates:
-             *  RelationalOperator: '<S8>/UpperRelop'
-             */
-            if (Z_CL3_B.Gain < Z_CL3_B.Sum3_c) {
-              rtb_Switch2 = Z_CL3_B.Sum3_c;
-            } else {
-              rtb_Switch2 = Z_CL3_B.Gain;
-            }
-
-            /* End of Switch: '<S8>/Switch' */
-          }
-
-          /* End of Switch: '<S8>/Switch2' */
-
-          /* MATLAB Function: '<S5>/VL2duty' incorporates:
-           *  Constant: '<S3>/Constant1'
-           */
-          Z_CL3_VL2duty(rtb_Switch2, Z_CL3_P.VinNom, Z_CL3_B.Gain12,
-                        &Z_CL3_B.sf_VL2duty);
-
-          /* DataTypeConversion: '<S1>/Cast To Single2' incorporates:
-           *  Gain: '<S1>/Gain1'
-           */
-          Z_CL3_B.Sum3_c = floor(Z_CL3_P.TBPRD * Z_CL3_B.sf_VL2duty.D);
-          if (rtIsNaN(Z_CL3_B.Sum3_c) || rtIsInf(Z_CL3_B.Sum3_c)) {
-            Z_CL3_B.Sum3_c = 0.0;
-          } else {
-            Z_CL3_B.Sum3_c = fmod(Z_CL3_B.Sum3_c, 65536.0);
-          }
-
-          /* S-Function (c280xpwm): '<S1>/ePWM' incorporates:
-           *  DataTypeConversion: '<S1>/Cast To Single2'
-           */
-
-          /*-- Update CMPA value for ePWM2 --*/
-          {
-            EPwm2Regs.CMPA.half.CMPA = (uint16_T)((Z_CL3_B.Sum3_c < 0.0 ?
-              (uint16_T)-(int16_T)(uint16_T)-Z_CL3_B.Sum3_c : (uint16_T)
-              Z_CL3_B.Sum3_c));
-          }
-
-          /* Sum: '<S1>/Sum2' incorporates:
-           *  Constant: '<S1>/Constant2'
-           *  Gain: '<S1>/Gain13'
-           *  Gain: '<S1>/Gain8'
-           */
-          Z_CL3_B.Sum3_c = 1.0 / Z_CL3_P.ADC_mapping * Z_CL3_B.analogdial_o3 *
-            (2.0 * Z_CL3_P.IfbMax) - Z_CL3_P.IfbMax;
+          Z_CL3_B.Gain7 = 1.0 / Z_CL3_P.ADC_mapping * Z_CL3_B.analogdial_o5 *
+            2.0 * 10.0 - 10.0;
 
           /* DiscreteTransferFcn: '<S6>/discrete integrator' incorporates:
            *  Gain: '<S6>/Gain'
@@ -864,7 +780,7 @@ interrupt void SEQ1INT(void)
            *  Sum: '<S6>/Sum3'
            */
           discreteintegrator_tmp_m = (((Z_CL3_B.discreteintegrator -
-            Z_CL3_B.Sum3_c) - Z_CL3_DW.Memory_PreviousInput_c) * Z_CL3_P.ki_i -
+            Z_CL3_B.Gain7) - Z_CL3_DW.Memory_PreviousInput) * Z_CL3_P.ki_i -
             Z_CL3_P.zden_Integrator[1L] * Z_CL3_DW.discreteintegrator_states_l) /
             Z_CL3_P.zden_Integrator[0];
 
@@ -872,29 +788,30 @@ interrupt void SEQ1INT(void)
            *  DiscreteTransferFcn: '<S6>/discrete integrator'
            *  Gain: '<S6>/Gain1'
            */
-          Z_CL3_B.Memory = (Z_CL3_P.znum_Integrator[0] *
-                            discreteintegrator_tmp_m + Z_CL3_P.znum_Integrator
-                            [1L] * Z_CL3_DW.discreteintegrator_states_l) -
-            Z_CL3_P.kp_i * Z_CL3_B.Sum3_c;
+          Z_CL3_B.Gain = (Z_CL3_P.znum_Integrator[0] * discreteintegrator_tmp_m
+                          + Z_CL3_P.znum_Integrator[1L] *
+                          Z_CL3_DW.discreteintegrator_states_l) - Z_CL3_P.kp_i *
+            Z_CL3_B.Gain7;
 
           /* Switch: '<S10>/Switch2' incorporates:
+           *  Gain: '<S6>/Gain3'
            *  RelationalOperator: '<S10>/LowerRelop1'
            */
-          if (Z_CL3_B.Memory > rtb_Sum3_c_tmp) {
-            rtb_Gain_n = rtb_Sum3_c_tmp;
+          if (Z_CL3_B.Gain > rtb_IL3fb_tmp) {
+            rtb_Switch2 = rtb_IL3fb_tmp;
           } else {
             /* Sum: '<S6>/Sum4' incorporates:
              *  Constant: '<S3>/Constant2'
              */
-            Z_CL3_B.Sum3_c = Z_CL3_P.VinNom - Z_CL3_B.Gain12;
+            Z_CL3_B.IL3fb = Z_CL3_P.VinNom - Z_CL3_B.Vfb;
 
             /* Switch: '<S10>/Switch' incorporates:
              *  RelationalOperator: '<S10>/UpperRelop'
              */
-            if (Z_CL3_B.Memory < Z_CL3_B.Sum3_c) {
-              rtb_Gain_n = Z_CL3_B.Sum3_c;
+            if (Z_CL3_B.Gain < Z_CL3_B.IL3fb) {
+              rtb_Switch2 = Z_CL3_B.IL3fb;
             } else {
-              rtb_Gain_n = Z_CL3_B.Memory;
+              rtb_Switch2 = Z_CL3_B.Gain;
             }
 
             /* End of Switch: '<S10>/Switch' */
@@ -905,17 +822,95 @@ interrupt void SEQ1INT(void)
           /* MATLAB Function: '<S6>/VL2duty' incorporates:
            *  Constant: '<S3>/Constant2'
            */
-          Z_CL3_VL2duty(rtb_Gain_n, Z_CL3_P.VinNom, Z_CL3_B.Gain12,
+          Z_CL3_VL2duty(rtb_Switch2, Z_CL3_P.VinNom, Z_CL3_B.Vfb,
                         &Z_CL3_B.sf_VL2duty_h);
+
+          /* DataTypeConversion: '<S1>/Cast To Single2' incorporates:
+           *  Gain: '<S1>/Gain1'
+           */
+          Z_CL3_B.IL3fb = floor(Z_CL3_P.TBPRD * Z_CL3_B.sf_VL2duty_h.D);
+          if (rtIsNaN(Z_CL3_B.IL3fb) || rtIsInf(Z_CL3_B.IL3fb)) {
+            Z_CL3_B.IL3fb = 0.0;
+          } else {
+            Z_CL3_B.IL3fb = fmod(Z_CL3_B.IL3fb, 65536.0);
+          }
+
+          /* S-Function (c280xpwm): '<S1>/ePWM' incorporates:
+           *  DataTypeConversion: '<S1>/Cast To Single2'
+           */
+
+          /*-- Update CMPA value for ePWM2 --*/
+          {
+            EPwm2Regs.CMPA.half.CMPA = (uint16_T)((Z_CL3_B.IL3fb < 0.0 ?
+              (uint16_T)-(int16_T)(uint16_T)-Z_CL3_B.IL3fb : (uint16_T)
+              Z_CL3_B.IL3fb));
+          }
+
+          /* Fcn: '<S1>/Fcn5' incorporates:
+           *  Gain: '<S1>/Gain8'
+           */
+          Z_CL3_B.IL3fb = 1.0 / Z_CL3_P.ADC_mapping * Z_CL3_B.analogdial_o3 *
+            2.0 * 10.0 - 10.0;
+
+          /* DiscreteTransferFcn: '<S5>/discrete integrator' incorporates:
+           *  Gain: '<S5>/Gain'
+           *  Memory: '<S5>/Memory'
+           *  Sum: '<S5>/Sum'
+           *  Sum: '<S5>/Sum3'
+           */
+          discreteintegrator_tmp_f = (((Z_CL3_B.discreteintegrator -
+            Z_CL3_B.IL3fb) - Z_CL3_DW.Memory_PreviousInput_m) * Z_CL3_P.ki_i -
+            Z_CL3_P.zden_Integrator[1L] * Z_CL3_DW.discreteintegrator_states_a) /
+            Z_CL3_P.zden_Integrator[0];
+
+          /* Sum: '<S5>/Sum1' incorporates:
+           *  DiscreteTransferFcn: '<S5>/discrete integrator'
+           *  Gain: '<S5>/Gain1'
+           */
+          Z_CL3_B.Memory = (Z_CL3_P.znum_Integrator[0] *
+                            discreteintegrator_tmp_f + Z_CL3_P.znum_Integrator
+                            [1L] * Z_CL3_DW.discreteintegrator_states_a) -
+            Z_CL3_P.kp_i * Z_CL3_B.IL3fb;
+
+          /* Switch: '<S8>/Switch2' incorporates:
+           *  RelationalOperator: '<S8>/LowerRelop1'
+           */
+          if (Z_CL3_B.Memory > rtb_IL3fb_tmp) {
+            rtb_Gain_p = rtb_IL3fb_tmp;
+          } else {
+            /* Sum: '<S5>/Sum4' incorporates:
+             *  Constant: '<S3>/Constant1'
+             */
+            Z_CL3_B.IL3fb = Z_CL3_P.VinNom - Z_CL3_B.Vfb;
+
+            /* Switch: '<S8>/Switch' incorporates:
+             *  RelationalOperator: '<S8>/UpperRelop'
+             */
+            if (Z_CL3_B.Memory < Z_CL3_B.IL3fb) {
+              rtb_Gain_p = Z_CL3_B.IL3fb;
+            } else {
+              rtb_Gain_p = Z_CL3_B.Memory;
+            }
+
+            /* End of Switch: '<S8>/Switch' */
+          }
+
+          /* End of Switch: '<S8>/Switch2' */
+
+          /* MATLAB Function: '<S5>/VL2duty' incorporates:
+           *  Constant: '<S3>/Constant1'
+           */
+          Z_CL3_VL2duty(rtb_Gain_p, Z_CL3_P.VinNom, Z_CL3_B.Vfb,
+                        &Z_CL3_B.sf_VL2duty);
 
           /* DataTypeConversion: '<S1>/Cast To Single3' incorporates:
            *  Gain: '<S1>/Gain6'
            */
-          Z_CL3_B.Sum3_c = floor(Z_CL3_P.TBPRD * Z_CL3_B.sf_VL2duty_h.D);
-          if (rtIsNaN(Z_CL3_B.Sum3_c) || rtIsInf(Z_CL3_B.Sum3_c)) {
-            Z_CL3_B.Sum3_c = 0.0;
+          Z_CL3_B.IL3fb = floor(Z_CL3_P.TBPRD * Z_CL3_B.sf_VL2duty.D);
+          if (rtIsNaN(Z_CL3_B.IL3fb) || rtIsInf(Z_CL3_B.IL3fb)) {
+            Z_CL3_B.IL3fb = 0.0;
           } else {
-            Z_CL3_B.Sum3_c = fmod(Z_CL3_B.Sum3_c, 65536.0);
+            Z_CL3_B.IL3fb = fmod(Z_CL3_B.IL3fb, 65536.0);
           }
 
           /* S-Function (c280xpwm): '<S1>/ePWM1' incorporates:
@@ -924,21 +919,19 @@ interrupt void SEQ1INT(void)
 
           /*-- Update CMPA value for ePWM3 --*/
           {
-            EPwm3Regs.CMPA.half.CMPA = (uint16_T)((Z_CL3_B.Sum3_c < 0.0 ?
-              (uint16_T)-(int16_T)(uint16_T)-Z_CL3_B.Sum3_c : (uint16_T)
-              Z_CL3_B.Sum3_c));
+            EPwm3Regs.CMPA.half.CMPA = (uint16_T)((Z_CL3_B.IL3fb < 0.0 ?
+              (uint16_T)-(int16_T)(uint16_T)-Z_CL3_B.IL3fb : (uint16_T)
+              Z_CL3_B.IL3fb));
           }
 
           /* Gain: '<S7>/Gain3' */
-          Z_CL3_B.Gain7 = rtb_Sum3_c_tmp;
+          Z_CL3_B.Gain7 = rtb_IL3fb_tmp;
 
-          /* Sum: '<S1>/Sum3' incorporates:
-           *  Constant: '<S1>/Constant2'
-           *  Gain: '<S1>/Gain14'
-           *  Gain: '<S1>/Gain9'
+          /* Fcn: '<S1>/Fcn7' incorporates:
+           *  Gain: '<S1>/Gain11'
            */
-          Z_CL3_B.Sum3_c = 1.0 / Z_CL3_P.ADC_mapping * Z_CL3_B.analogdial_o4 *
-            (2.0 * Z_CL3_P.IfbMax) - Z_CL3_P.IfbMax;
+          Z_CL3_B.IL3fb = 1.0 / Z_CL3_P.ADC_mapping * Z_CL3_B.analogdial_o6 *
+            2.0 * 10.0 - 10.0;
 
           /* DiscreteTransferFcn: '<S7>/discrete integrator' incorporates:
            *  Gain: '<S7>/Gain'
@@ -947,7 +940,7 @@ interrupt void SEQ1INT(void)
            *  Sum: '<S7>/Sum3'
            */
           discreteintegrator_tmp_k = (((Z_CL3_B.discreteintegrator -
-            Z_CL3_B.Sum3_c) - Z_CL3_DW.Memory_PreviousInput_p) * Z_CL3_P.ki_i -
+            Z_CL3_B.IL3fb) - Z_CL3_DW.Memory_PreviousInput_p) * Z_CL3_P.ki_i -
             Z_CL3_P.zden_Integrator[1L] * Z_CL3_DW.discreteintegrator_states_c) /
             Z_CL3_P.zden_Integrator[0];
 
@@ -957,23 +950,22 @@ interrupt void SEQ1INT(void)
            */
           Z_CL3_B.discreteintegrator = (Z_CL3_P.znum_Integrator[0] *
             discreteintegrator_tmp_k + Z_CL3_P.znum_Integrator[1L] *
-            Z_CL3_DW.discreteintegrator_states_c) - Z_CL3_P.kp_i *
-            Z_CL3_B.Sum3_c;
+            Z_CL3_DW.discreteintegrator_states_c) - Z_CL3_P.kp_i * Z_CL3_B.IL3fb;
 
           /* Switch: '<S12>/Switch2' incorporates:
            *  RelationalOperator: '<S12>/LowerRelop1'
            */
-          if (!(Z_CL3_B.discreteintegrator > rtb_Sum3_c_tmp)) {
+          if (!(Z_CL3_B.discreteintegrator > rtb_IL3fb_tmp)) {
             /* Sum: '<S7>/Sum4' incorporates:
              *  Constant: '<S3>/Constant4'
              */
-            Z_CL3_B.Sum3_c = Z_CL3_P.VinNom - Z_CL3_B.Gain12;
+            Z_CL3_B.IL3fb = Z_CL3_P.VinNom - Z_CL3_B.Vfb;
 
             /* Switch: '<S12>/Switch' incorporates:
              *  RelationalOperator: '<S12>/UpperRelop'
              */
-            if (Z_CL3_B.discreteintegrator < Z_CL3_B.Sum3_c) {
-              Z_CL3_B.Gain7 = Z_CL3_B.Sum3_c;
+            if (Z_CL3_B.discreteintegrator < Z_CL3_B.IL3fb) {
+              Z_CL3_B.Gain7 = Z_CL3_B.IL3fb;
             } else {
               Z_CL3_B.Gain7 = Z_CL3_B.discreteintegrator;
             }
@@ -986,17 +978,17 @@ interrupt void SEQ1INT(void)
           /* MATLAB Function: '<S7>/VL2duty' incorporates:
            *  Constant: '<S3>/Constant4'
            */
-          Z_CL3_VL2duty(Z_CL3_B.Gain7, Z_CL3_P.VinNom, Z_CL3_B.Gain12,
+          Z_CL3_VL2duty(Z_CL3_B.Gain7, Z_CL3_P.VinNom, Z_CL3_B.Vfb,
                         &Z_CL3_B.sf_VL2duty_j);
 
           /* DataTypeConversion: '<S1>/Cast To Single4' incorporates:
            *  Gain: '<S1>/Gain7'
            */
-          Z_CL3_B.Sum3_c = floor(Z_CL3_P.TBPRD * Z_CL3_B.sf_VL2duty_j.D);
-          if (rtIsNaN(Z_CL3_B.Sum3_c) || rtIsInf(Z_CL3_B.Sum3_c)) {
-            Z_CL3_B.Sum3_c = 0.0;
+          Z_CL3_B.IL3fb = floor(Z_CL3_P.TBPRD * Z_CL3_B.sf_VL2duty_j.D);
+          if (rtIsNaN(Z_CL3_B.IL3fb) || rtIsInf(Z_CL3_B.IL3fb)) {
+            Z_CL3_B.IL3fb = 0.0;
           } else {
-            Z_CL3_B.Sum3_c = fmod(Z_CL3_B.Sum3_c, 65536.0);
+            Z_CL3_B.IL3fb = fmod(Z_CL3_B.IL3fb, 65536.0);
           }
 
           /* S-Function (c280xpwm): '<S1>/ePWM2' incorporates:
@@ -1005,14 +997,14 @@ interrupt void SEQ1INT(void)
 
           /*-- Update CMPA value for ePWM6 --*/
           {
-            EPwm6Regs.CMPA.half.CMPA = (uint16_T)((Z_CL3_B.Sum3_c < 0.0 ?
-              (uint16_T)-(int16_T)(uint16_T)-Z_CL3_B.Sum3_c : (uint16_T)
-              Z_CL3_B.Sum3_c));
+            EPwm6Regs.CMPA.half.CMPA = (uint16_T)((Z_CL3_B.IL3fb < 0.0 ?
+              (uint16_T)-(int16_T)(uint16_T)-Z_CL3_B.IL3fb : (uint16_T)
+              Z_CL3_B.IL3fb));
           }
 
-          /* Update for Memory: '<S5>/Memory' incorporates:
-           *  Gain: '<S5>/Gain2'
-           *  Sum: '<S5>/Sum2'
+          /* Update for Memory: '<S6>/Memory' incorporates:
+           *  Gain: '<S6>/Gain2'
+           *  Sum: '<S6>/Sum2'
            */
           Z_CL3_DW.Memory_PreviousInput = (Z_CL3_B.Gain - rtb_Switch2) *
             Z_CL3_P.kaw_i;
@@ -1032,18 +1024,18 @@ interrupt void SEQ1INT(void)
           /* Update for DiscreteTransferFcn: '<S3>/discrete integrator' */
           Z_CL3_DW.discreteintegrator_states = discreteintegrator_tmp;
 
-          /* Update for DiscreteTransferFcn: '<S5>/discrete integrator' */
-          Z_CL3_DW.discreteintegrator_states_a = discreteintegrator_tmp_f;
-
-          /* Update for Memory: '<S6>/Memory' incorporates:
-           *  Gain: '<S6>/Gain2'
-           *  Sum: '<S6>/Sum2'
-           */
-          Z_CL3_DW.Memory_PreviousInput_c = (Z_CL3_B.Memory - rtb_Gain_n) *
-            Z_CL3_P.kaw_i;
-
           /* Update for DiscreteTransferFcn: '<S6>/discrete integrator' */
           Z_CL3_DW.discreteintegrator_states_l = discreteintegrator_tmp_m;
+
+          /* Update for Memory: '<S5>/Memory' incorporates:
+           *  Gain: '<S5>/Gain2'
+           *  Sum: '<S5>/Sum2'
+           */
+          Z_CL3_DW.Memory_PreviousInput_m = (Z_CL3_B.Memory - rtb_Gain_p) *
+            Z_CL3_P.kaw_i;
+
+          /* Update for DiscreteTransferFcn: '<S5>/discrete integrator' */
+          Z_CL3_DW.discreteintegrator_states_a = discreteintegrator_tmp_f;
 
           /* Update for Memory: '<S7>/Memory' incorporates:
            *  Gain: '<S7>/Gain2'

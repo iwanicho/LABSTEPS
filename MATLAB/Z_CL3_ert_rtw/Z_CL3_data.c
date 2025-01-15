@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_CL3".
  *
- * Model version              : 9.45
+ * Model version              : 9.82
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Dec  4 13:18:47 2024
+ * C source code generated on : Wed Jan  8 18:16:51 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -35,19 +35,10 @@ P_Z_CL3_T Z_CL3_P = {
    */
   10.0,
 
-  /* Variable: IfbMax
-   * Referenced by:
-   *   '<S1>/Constant2'
-   *   '<S1>/Gain13'
-   *   '<S1>/Gain14'
-   *   '<S1>/Gain15'
-   */
-  10.0,
-
   /* Variable: RserL
    * Referenced by: '<S3>/Iout2IL2'
    */
-  0.00878,
+  0.5,
 
   /* Variable: TBPRD
    * Referenced by:
@@ -56,14 +47,6 @@ P_Z_CL3_T Z_CL3_P = {
    *   '<S1>/Gain7'
    */
   7500.0,
-
-  /* Variable: Tsw
-   * Referenced by:
-   *   '<S5>/VL2duty'
-   *   '<S6>/VL2duty'
-   *   '<S7>/VL2duty'
-   */
-  0.0001,
 
   /* Variable: VLlim
    * Referenced by:
@@ -92,21 +75,13 @@ P_Z_CL3_T Z_CL3_P = {
    */
   50.0,
 
-  /* Variable: deadtimesw
-   * Referenced by:
-   *   '<S5>/VL2duty'
-   *   '<S6>/VL2duty'
-   *   '<S7>/VL2duty'
-   */
-  2.8E-6,
-
   /* Variable: kaw_i
    * Referenced by:
    *   '<S5>/Gain2'
    *   '<S6>/Gain2'
    *   '<S7>/Gain2'
    */
-  0.44971954276029841,
+  0.25222105101457981,
 
   /* Variable: kaw_v
    * Referenced by: '<S3>/Gain8'
@@ -119,7 +94,7 @@ P_Z_CL3_T Z_CL3_P = {
    *   '<S6>/Gain'
    *   '<S7>/Gain'
    */
-  2459.3770656218503,
+  4918.7541312437006,
 
   /* Variable: ki_v
    * Referenced by: '<S3>/Gain13'
@@ -132,7 +107,7 @@ P_Z_CL3_T Z_CL3_P = {
    *   '<S6>/Gain1'
    *   '<S7>/Gain1'
    */
-  2.2236080599526056,
+  3.9647761199052107,
 
   /* Variable: kp_v
    * Referenced by: '<S3>/Gain15'
@@ -158,7 +133,7 @@ P_Z_CL3_T Z_CL3_P = {
   { 5.0E-5, 5.0E-5 },
 
   /* Expression: 0
-   * Referenced by: '<S5>/Memory'
+   * Referenced by: '<S6>/Memory'
    */
   0.0,
 
@@ -183,17 +158,17 @@ P_Z_CL3_T Z_CL3_P = {
   0.33333333333333331,
 
   /* Expression: 0
-   * Referenced by: '<S5>/discrete integrator'
-   */
-  0.0,
-
-  /* Expression: 0
-   * Referenced by: '<S6>/Memory'
-   */
-  0.0,
-
-  /* Expression: 0
    * Referenced by: '<S6>/discrete integrator'
+   */
+  0.0,
+
+  /* Expression: 0
+   * Referenced by: '<S5>/Memory'
+   */
+  0.0,
+
+  /* Expression: 0
+   * Referenced by: '<S5>/discrete integrator'
    */
   0.0,
 
