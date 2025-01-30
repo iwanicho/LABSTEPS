@@ -10,9 +10,7 @@ void config_ePWM_GPIO (void)
 {
   EALLOW;
 
-  /*-- Configure pin assignments for ePWM4 --*/
-
-  /*-- Configure pin assignments for ePWM5 --*/
+  /*-- Configure pin assignments for ePWM1 --*/
 
   /*-- Configure pin assignments for ePWM2 --*/
   GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 1U; /* Configure GPIOGPIO2 as EPWM2A*/
@@ -25,6 +23,10 @@ void config_ePWM_GPIO (void)
   /*-- Configure pin assignments for ePWM6 --*/
   GpioCtrlRegs.GPAMUX1.bit.GPIO10 = 1U;/* Configure GPIOGPIO10 as EPWM6A*/
   GpioCtrlRegs.GPAMUX1.bit.GPIO11 = 1U;/* Configure GPIOGPIO11 as EPWM6B*/
+
+  /*-- Configure pin assignments for ePWM4 --*/
+
+  /*-- Configure pin assignments for ePWM5 --*/
   EDIS;
 }
 

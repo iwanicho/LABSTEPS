@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_CL3".
  *
- * Model version              : 9.82
+ * Model version              : 9.112
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Jan  8 18:16:51 2025
+ * C source code generated on : Thu Jan 16 23:13:39 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000

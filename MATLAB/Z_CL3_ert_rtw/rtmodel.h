@@ -4,7 +4,7 @@
  * Code generation for Simulink model "Z_CL3".
  *
  * Simulink Coder version                : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Jan  8 18:16:51 2025
+ * C source code generated on : Thu Jan 16 23:13:39 2025
  *
  * Note that the generated code is not dependent on this header file.
  * The file is used in cojuction with the automatic build procedure.

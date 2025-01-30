@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_OL3".
  *
- * Model version              : 9.33
+ * Model version              : 9.51
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Jan  8 18:21:01 2025
+ * C source code generated on : Thu Jan 16 12:51:50 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -51,26 +51,45 @@ extern void config_ePWM_XBAR(void);
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T ADC_o1;                       /* '<S1>/ADC' */
-  real_T ADC_o2;                       /* '<S1>/ADC' */
+  real_T analogdial_o1;                /* '<S1>/analog dial' */
+  real_T analogdial_o2;                /* '<S1>/analog dial' */
+  real_T analogdial_o3;                /* '<S1>/analog dial' */
+  real_T analogdial_o4;                /* '<S1>/analog dial' */
+  real_T analogdial_o5;                /* '<S1>/analog dial' */
+  real_T analogdial_o6;                /* '<S1>/analog dial' */
 } B_Z_OL3_T;
 
 /* Parameters (default storage) */
 struct P_Z_OL3_T_ {
-  real_T IoutNom;                      /* Variable: IoutNom
-                                        * Referenced by: '<S1>/MATLAB Function'
-                                        */
-  real_T RserL;                        /* Variable: RserL
-                                        * Referenced by: '<S1>/MATLAB Function'
+  real_T ADC_mapping;                  /* Variable: ADC_mapping
+                                        * Referenced by:
+                                        *   '<S1>/Gain10'
+                                        *   '<S1>/Gain11'
+                                        *   '<S1>/Gain8'
                                         */
   real_T TBPRD;                        /* Variable: TBPRD
                                         * Referenced by: '<S1>/Gain1'
                                         */
-  real_T VinNom;                       /* Variable: VinNom
-                                        * Referenced by: '<S1>/MATLAB Function'
+  real_T Constant_Value;               /* Expression: 0.3
+                                        * Referenced by: '<S1>/Constant'
                                         */
-  real_T VoutNom;                      /* Variable: VoutNom
-                                        * Referenced by: '<S1>/Constant1'
+  real_T Gain14_Gain;                  /* Expression: -1
+                                        * Referenced by: '<S1>/Gain14'
+                                        */
+  real_T Gain4_Gain;                   /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain4'
+                                        */
+  real_T Gain7_Gain;                   /* Expression: -1
+                                        * Referenced by: '<S1>/Gain7'
+                                        */
+  real_T Gain5_Gain;                   /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain5'
+                                        */
+  real_T Gain_Gain;                    /* Expression: -1
+                                        * Referenced by: '<S1>/Gain'
+                                        */
+  real_T Gain13_Gain;                  /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain13'
                                         */
 };
 
@@ -128,8 +147,7 @@ extern "C"
  * '<Root>' : 'Z_OL3'
  * '<S1>'   : 'Z_OL3/ADC-PWM Subsystem'
  * '<S2>'   : 'Z_OL3/HWI_SEQ1INT'
- * '<S3>'   : 'Z_OL3/ADC-PWM Subsystem/MATLAB Function'
- * '<S4>'   : 'Z_OL3/HWI_SEQ1INT/ECSoC'
- * '<S5>'   : 'Z_OL3/HWI_SEQ1INT/ECSoC/ECSimCodegen'
+ * '<S3>'   : 'Z_OL3/HWI_SEQ1INT/ECSoC'
+ * '<S4>'   : 'Z_OL3/HWI_SEQ1INT/ECSoC/ECSimCodegen'
  */
 #endif                                 /* Z_OL3_h_ */

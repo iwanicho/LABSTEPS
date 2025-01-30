@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_CL3".
  *
- * Model version              : 9.82
+ * Model version              : 9.112
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Jan  8 18:16:51 2025
+ * C source code generated on : Thu Jan 16 23:13:39 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -62,15 +62,19 @@ typedef struct {
   real_T analogdial_o4;                /* '<S1>/analog dial' */
   real_T analogdial_o5;                /* '<S1>/analog dial' */
   real_T analogdial_o6;                /* '<S1>/analog dial' */
-  real_T VoutRef;
-  real_T IL3fb;                        /* '<S1>/Fcn7' */
-  real_T Memory;                       /* '<S7>/Memory' */
+  real_T VcorrA;                       /* '<S1>/V corrA' */
   real_T discreteintegrator;           /* '<S7>/discrete integrator' */
-  real_T Vfb;                          /* '<S1>/Gain12' */
+  real_T Vout_ref;                     /* '<S1>/Fcn3' */
+  real_T Gain7;                        /* '<S1>/Gain7' */
+  real_T Gain20;                       /* '<S1>/Gain20' */
   real_T Gain13;                       /* '<S3>/Gain13' */
   real_T IL;                           /* '<S3>/Saturation2' */
-  real_T Gain7;                        /* '<S1>/Gain7' */
+  real_T Gain17;                       /* '<S1>/Gain17' */
   real_T Gain;                         /* '<S6>/Gain' */
+  real_T Switch2;                      /* '<S10>/Switch2' */
+  real_T Gain4;                        /* '<S1>/Gain4' */
+  real_T Gain_b;                       /* '<S5>/Gain' */
+  real_T Switch2_o;                    /* '<S8>/Switch2' */
   B_VL2duty_Z_CL3_T sf_VL2duty_j;      /* '<S7>/VL2duty' */
   B_VL2duty_Z_CL3_T sf_VL2duty_h;      /* '<S6>/VL2duty' */
   B_VL2duty_Z_CL3_T sf_VL2duty;        /* '<S5>/VL2duty' */
@@ -95,6 +99,7 @@ struct P_Z_CL3_T_ {
                                         * Referenced by:
                                         *   '<S1>/Gain10'
                                         *   '<S1>/Gain11'
+                                        *   '<S1>/Gain2'
                                         *   '<S1>/Gain8'
                                         *   '<S1>/Gain9'
                                         */
@@ -120,14 +125,7 @@ struct P_Z_CL3_T_ {
                                         * Referenced by: '<S1>/Gain12'
                                         */
   real_T VinNom;                       /* Variable: VinNom
-                                        * Referenced by:
-                                        *   '<S3>/Constant1'
-                                        *   '<S3>/Constant2'
-                                        *   '<S3>/Constant3'
-                                        *   '<S3>/Constant4'
-                                        */
-  real_T VoutNom;                      /* Variable: VoutNom
-                                        * Referenced by: '<S1>/Constant5'
+                                        * Referenced by: '<S1>/Constant'
                                         */
   real_T kaw_i;                        /* Variable: kaw_i
                                         * Referenced by:
@@ -170,6 +168,12 @@ struct P_Z_CL3_T_ {
                                         *   '<S6>/discrete integrator'
                                         *   '<S7>/discrete integrator'
                                         */
+  real_T Gain18_Gain;                  /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain18'
+                                        */
+  real_T Gain19_Gain;                  /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain19'
+                                        */
   real_T Memory_InitialCondition;      /* Expression: 0
                                         * Referenced by: '<S6>/Memory'
                                         */
@@ -185,11 +189,17 @@ struct P_Z_CL3_T_ {
   real_T Gain6_Gain;                   /* Expression: 1/3
                                         * Referenced by: '<S3>/Gain6'
                                         */
+  real_T Gain13_Gain;                  /* Expression: -1
+                                        * Referenced by: '<S1>/Gain13'
+                                        */
   real_T discreteintegrator_InitialSta_e;/* Expression: 0
                                           * Referenced by: '<S6>/discrete integrator'
                                           */
   real_T Memory_InitialCondition_l;    /* Expression: 0
                                         * Referenced by: '<S5>/Memory'
+                                        */
+  real_T Gain5_Gain;                   /* Expression: -1
+                                        * Referenced by: '<S1>/Gain5'
                                         */
   real_T discreteintegrator_InitialSta_m;/* Expression: 0
                                           * Referenced by: '<S5>/discrete integrator'
@@ -197,9 +207,24 @@ struct P_Z_CL3_T_ {
   real_T Memory_InitialCondition_i;    /* Expression: 0
                                         * Referenced by: '<S7>/Memory'
                                         */
+  real_T Gain14_Gain;                  /* Expression: -1
+                                        * Referenced by: '<S1>/Gain14'
+                                        */
   real_T discreteintegrator_InitialSt_me;/* Expression: 0
                                           * Referenced by: '<S7>/discrete integrator'
                                           */
+  real_T Gain4_Gain;                   /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain4'
+                                        */
+  real_T Gain17_Gain;                  /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain17'
+                                        */
+  real_T Gain15_Gain;                  /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain15'
+                                        */
+  real_T Gain20_Gain;                  /* Expression: 1000
+                                        * Referenced by: '<S1>/Gain20'
+                                        */
 };
 
 /* Real-time Model Data Structure */

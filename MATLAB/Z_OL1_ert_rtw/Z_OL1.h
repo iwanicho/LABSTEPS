@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_OL1".
  *
- * Model version              : 9.41
+ * Model version              : 9.44
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Jan 15 09:51:04 2025
+ * C source code generated on : Thu Jan 16 13:03:38 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -58,33 +58,16 @@ typedef struct {
 /* Parameters (default storage) */
 struct P_Z_OL1_T_ {
   real_T ADC_mapping;                  /* Variable: ADC_mapping
-                                        * Referenced by:
-                                        *   '<S1>/Gain10'
-                                        *   '<S1>/Gain11'
-                                        */
-  real_T IoutNom;                      /* Variable: IoutNom
-                                        * Referenced by: '<S1>/MATLAB Function'
-                                        */
-  real_T RserL;                        /* Variable: RserL
-                                        * Referenced by: '<S1>/MATLAB Function'
+                                        * Referenced by: '<S1>/Gain10'
                                         */
   real_T TBPRD;                        /* Variable: TBPRD
                                         * Referenced by: '<S1>/Gain1'
                                         */
-  real_T VfbMax;                       /* Variable: VfbMax
-                                        * Referenced by: '<S1>/Gain12'
-                                        */
-  real_T VinNom;                       /* Variable: VinNom
-                                        * Referenced by: '<S1>/MATLAB Function'
-                                        */
-  real_T VoutNom;                      /* Variable: VoutNom
-                                        * Referenced by: '<S1>/Constant2'
-                                        */
   real_T Gain_Gain;                    /* Expression: 1000
                                         * Referenced by: '<S1>/Gain'
                                         */
-  real_T Gain4_Gain;                   /* Expression: 1000
-                                        * Referenced by: '<S1>/Gain4'
+  real_T Constant_Value;               /* Expression: 0.25
+                                        * Referenced by: '<S1>/Constant'
                                         */
 };
 
@@ -142,8 +125,7 @@ extern "C"
  * '<Root>' : 'Z_OL1'
  * '<S1>'   : 'Z_OL1/ADC-PWM Subsystem'
  * '<S2>'   : 'Z_OL1/HWI_SEQ1INT'
- * '<S3>'   : 'Z_OL1/ADC-PWM Subsystem/MATLAB Function'
- * '<S4>'   : 'Z_OL1/HWI_SEQ1INT/ECSoC'
- * '<S5>'   : 'Z_OL1/HWI_SEQ1INT/ECSoC/ECSimCodegen'
+ * '<S3>'   : 'Z_OL1/HWI_SEQ1INT/ECSoC'
+ * '<S4>'   : 'Z_OL1/HWI_SEQ1INT/ECSoC/ECSimCodegen'
  */
 #endif                                 /* Z_OL1_h_ */

@@ -7,9 +7,9 @@
  *
  * Code generation for model "Z_CL3".
  *
- * Model version              : 9.82
+ * Model version              : 9.112
  * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
- * C source code generated on : Wed Jan  8 18:16:51 2025
+ * C source code generated on : Thu Jan 16 23:13:39 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Texas Instruments->C2000
@@ -25,6 +25,7 @@ P_Z_CL3_T Z_CL3_P = {
    * Referenced by:
    *   '<S1>/Gain10'
    *   '<S1>/Gain11'
+   *   '<S1>/Gain2'
    *   '<S1>/Gain8'
    *   '<S1>/Gain9'
    */
@@ -33,7 +34,7 @@ P_Z_CL3_T Z_CL3_P = {
   /* Variable: ILmax
    * Referenced by: '<S3>/Saturation2'
    */
-  10.0,
+  3.0,
 
   /* Variable: RserL
    * Referenced by: '<S3>/Iout2IL2'
@@ -62,18 +63,9 @@ P_Z_CL3_T Z_CL3_P = {
   750.0,
 
   /* Variable: VinNom
-   * Referenced by:
-   *   '<S3>/Constant1'
-   *   '<S3>/Constant2'
-   *   '<S3>/Constant3'
-   *   '<S3>/Constant4'
+   * Referenced by: '<S1>/Constant'
    */
   30.0,
-
-  /* Variable: VoutNom
-   * Referenced by: '<S1>/Constant5'
-   */
-  50.0,
 
   /* Variable: kaw_i
    * Referenced by:
@@ -86,7 +78,7 @@ P_Z_CL3_T Z_CL3_P = {
   /* Variable: kaw_v
    * Referenced by: '<S3>/Gain8'
    */
-  156.75742330554746,
+  3.8206407192046723,
 
   /* Variable: ki_i
    * Referenced by:
@@ -132,6 +124,16 @@ P_Z_CL3_T Z_CL3_P = {
    */
   { 5.0E-5, 5.0E-5 },
 
+  /* Expression: 1000
+   * Referenced by: '<S1>/Gain18'
+   */
+  1000.0,
+
+  /* Expression: 1000
+   * Referenced by: '<S1>/Gain19'
+   */
+  1000.0,
+
   /* Expression: 0
    * Referenced by: '<S6>/Memory'
    */
@@ -157,6 +159,11 @@ P_Z_CL3_T Z_CL3_P = {
    */
   0.33333333333333331,
 
+  /* Expression: -1
+   * Referenced by: '<S1>/Gain13'
+   */
+  -1.0,
+
   /* Expression: 0
    * Referenced by: '<S6>/discrete integrator'
    */
@@ -166,6 +173,11 @@ P_Z_CL3_T Z_CL3_P = {
    * Referenced by: '<S5>/Memory'
    */
   0.0,
+
+  /* Expression: -1
+   * Referenced by: '<S1>/Gain5'
+   */
+  -1.0,
 
   /* Expression: 0
    * Referenced by: '<S5>/discrete integrator'
@@ -177,8 +189,33 @@ P_Z_CL3_T Z_CL3_P = {
    */
   0.0,
 
+  /* Expression: -1
+   * Referenced by: '<S1>/Gain14'
+   */
+  -1.0,
+
   /* Expression: 0
    * Referenced by: '<S7>/discrete integrator'
    */
-  0.0
+  0.0,
+
+  /* Expression: 1000
+   * Referenced by: '<S1>/Gain4'
+   */
+  1000.0,
+
+  /* Expression: 1000
+   * Referenced by: '<S1>/Gain17'
+   */
+  1000.0,
+
+  /* Expression: 1000
+   * Referenced by: '<S1>/Gain15'
+   */
+  1000.0,
+
+  /* Expression: 1000
+   * Referenced by: '<S1>/Gain20'
+   */
+  1000.0
 };
